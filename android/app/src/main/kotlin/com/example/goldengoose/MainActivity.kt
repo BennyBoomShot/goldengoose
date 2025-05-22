@@ -1,4 +1,4 @@
-package com.example.goldengoose
+package com.bentech.goldengoose
 
 import io.flutter.embedding.android.FlutterActivity
 

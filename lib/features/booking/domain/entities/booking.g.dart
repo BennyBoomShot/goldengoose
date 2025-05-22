@@ -16,8 +16,7 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
       endTime: DateTime.parse(json['endTime'] as String),
       totalAmount: (json['totalAmount'] as num).toDouble(),
       notes: json['notes'] as String?,
-      status:
-          $enumDecodeNullable(_$BookingStatusEnumMap, json['status']) ??
+      status: $enumDecodeNullable(_$BookingStatusEnumMap, json['status']) ??
           BookingStatus.pending,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),

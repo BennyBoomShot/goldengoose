@@ -12,8 +12,7 @@ part of 'business.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Business _$BusinessFromJson(Map<String, dynamic> json) {
   return _Business.fromJson(json);
@@ -54,25 +53,24 @@ abstract class $BusinessCopyWith<$Res> {
   factory $BusinessCopyWith(Business value, $Res Function(Business) then) =
       _$BusinessCopyWithImpl<$Res, Business>;
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String description,
-    String address,
-    String city,
-    String state,
-    String zipCode,
-    String country,
-    String? website,
-    String? phoneNumber,
-    String? email,
-    List<String>? images,
-    double? rating,
-    int? reviewCount,
-    bool isActive,
-    DateTime createdAt,
-    DateTime updatedAt,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String description,
+      String address,
+      String city,
+      String state,
+      String zipCode,
+      String country,
+      String? website,
+      String? phoneNumber,
+      String? email,
+      List<String>? images,
+      double? rating,
+      int? reviewCount,
+      bool isActive,
+      DateTime createdAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -108,96 +106,76 @@ class _$BusinessCopyWithImpl<$Res, $Val extends Business>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(
-      _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
-            address:
-                null == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
-                        as String,
-            city:
-                null == city
-                    ? _value.city
-                    : city // ignore: cast_nullable_to_non_nullable
-                        as String,
-            state:
-                null == state
-                    ? _value.state
-                    : state // ignore: cast_nullable_to_non_nullable
-                        as String,
-            zipCode:
-                null == zipCode
-                    ? _value.zipCode
-                    : zipCode // ignore: cast_nullable_to_non_nullable
-                        as String,
-            country:
-                null == country
-                    ? _value.country
-                    : country // ignore: cast_nullable_to_non_nullable
-                        as String,
-            website:
-                freezed == website
-                    ? _value.website
-                    : website // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            phoneNumber:
-                freezed == phoneNumber
-                    ? _value.phoneNumber
-                    : phoneNumber // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            email:
-                freezed == email
-                    ? _value.email
-                    : email // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            images:
-                freezed == images
-                    ? _value.images
-                    : images // ignore: cast_nullable_to_non_nullable
-                        as List<String>?,
-            rating:
-                freezed == rating
-                    ? _value.rating
-                    : rating // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            reviewCount:
-                freezed == reviewCount
-                    ? _value.reviewCount
-                    : reviewCount // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            isActive:
-                null == isActive
-                    ? _value.isActive
-                    : isActive // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            createdAt:
-                null == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-            updatedAt:
-                null == updatedAt
-                    ? _value.updatedAt
-                    : updatedAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      zipCode: null == zipCode
+          ? _value.zipCode
+          : zipCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      reviewCount: freezed == reviewCount
+          ? _value.reviewCount
+          : reviewCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
   }
 }
 
@@ -205,30 +183,28 @@ class _$BusinessCopyWithImpl<$Res, $Val extends Business>
 abstract class _$$BusinessImplCopyWith<$Res>
     implements $BusinessCopyWith<$Res> {
   factory _$$BusinessImplCopyWith(
-    _$BusinessImpl value,
-    $Res Function(_$BusinessImpl) then,
-  ) = __$$BusinessImplCopyWithImpl<$Res>;
+          _$BusinessImpl value, $Res Function(_$BusinessImpl) then) =
+      __$$BusinessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String name,
-    String description,
-    String address,
-    String city,
-    String state,
-    String zipCode,
-    String country,
-    String? website,
-    String? phoneNumber,
-    String? email,
-    List<String>? images,
-    double? rating,
-    int? reviewCount,
-    bool isActive,
-    DateTime createdAt,
-    DateTime updatedAt,
-  });
+  $Res call(
+      {String id,
+      String name,
+      String description,
+      String address,
+      String city,
+      String state,
+      String zipCode,
+      String country,
+      String? website,
+      String? phoneNumber,
+      String? email,
+      List<String>? images,
+      double? rating,
+      int? reviewCount,
+      bool isActive,
+      DateTime createdAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -236,9 +212,8 @@ class __$$BusinessImplCopyWithImpl<$Res>
     extends _$BusinessCopyWithImpl<$Res, _$BusinessImpl>
     implements _$$BusinessImplCopyWith<$Res> {
   __$$BusinessImplCopyWithImpl(
-    _$BusinessImpl _value,
-    $Res Function(_$BusinessImpl) _then,
-  ) : super(_value, _then);
+      _$BusinessImpl _value, $Res Function(_$BusinessImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of Business
   /// with the given fields replaced by the non-null parameter values.
@@ -263,120 +238,101 @@ class __$$BusinessImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(
-      _$BusinessImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
-        address:
-            null == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
-                    as String,
-        city:
-            null == city
-                ? _value.city
-                : city // ignore: cast_nullable_to_non_nullable
-                    as String,
-        state:
-            null == state
-                ? _value.state
-                : state // ignore: cast_nullable_to_non_nullable
-                    as String,
-        zipCode:
-            null == zipCode
-                ? _value.zipCode
-                : zipCode // ignore: cast_nullable_to_non_nullable
-                    as String,
-        country:
-            null == country
-                ? _value.country
-                : country // ignore: cast_nullable_to_non_nullable
-                    as String,
-        website:
-            freezed == website
-                ? _value.website
-                : website // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        phoneNumber:
-            freezed == phoneNumber
-                ? _value.phoneNumber
-                : phoneNumber // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        email:
-            freezed == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        images:
-            freezed == images
-                ? _value._images
-                : images // ignore: cast_nullable_to_non_nullable
-                    as List<String>?,
-        rating:
-            freezed == rating
-                ? _value.rating
-                : rating // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        reviewCount:
-            freezed == reviewCount
-                ? _value.reviewCount
-                : reviewCount // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        isActive:
-            null == isActive
-                ? _value.isActive
-                : isActive // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        createdAt:
-            null == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-        updatedAt:
-            null == updatedAt
-                ? _value.updatedAt
-                : updatedAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-      ),
-    );
+    return _then(_$BusinessImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      zipCode: null == zipCode
+          ? _value.zipCode
+          : zipCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      reviewCount: freezed == reviewCount
+          ? _value.reviewCount
+          : reviewCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BusinessImpl implements _Business {
-  const _$BusinessImpl({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.address,
-    required this.city,
-    required this.state,
-    required this.zipCode,
-    required this.country,
-    this.website,
-    this.phoneNumber,
-    this.email,
-    final List<String>? images,
-    this.rating,
-    this.reviewCount,
-    required this.isActive,
-    required this.createdAt,
-    required this.updatedAt,
-  }) : _images = images;
+  const _$BusinessImpl(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.address,
+      required this.city,
+      required this.state,
+      required this.zipCode,
+      required this.country,
+      this.website,
+      this.phoneNumber,
+      this.email,
+      final List<String>? images,
+      this.rating,
+      this.reviewCount,
+      required this.isActive,
+      required this.createdAt,
+      required this.updatedAt})
+      : _images = images;
 
   factory _$BusinessImpl.fromJson(Map<String, dynamic> json) =>
       _$$BusinessImplFromJson(json);
@@ -462,25 +418,24 @@ class _$BusinessImpl implements _Business {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    description,
-    address,
-    city,
-    state,
-    zipCode,
-    country,
-    website,
-    phoneNumber,
-    email,
-    const DeepCollectionEquality().hash(_images),
-    rating,
-    reviewCount,
-    isActive,
-    createdAt,
-    updatedAt,
-  );
+      runtimeType,
+      id,
+      name,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+      country,
+      website,
+      phoneNumber,
+      email,
+      const DeepCollectionEquality().hash(_images),
+      rating,
+      reviewCount,
+      isActive,
+      createdAt,
+      updatedAt);
 
   /// Create a copy of Business
   /// with the given fields replaced by the non-null parameter values.
@@ -492,30 +447,31 @@ class _$BusinessImpl implements _Business {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BusinessImplToJson(this);
+    return _$$BusinessImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Business implements Business {
-  const factory _Business({
-    required final String id,
-    required final String name,
-    required final String description,
-    required final String address,
-    required final String city,
-    required final String state,
-    required final String zipCode,
-    required final String country,
-    final String? website,
-    final String? phoneNumber,
-    final String? email,
-    final List<String>? images,
-    final double? rating,
-    final int? reviewCount,
-    required final bool isActive,
-    required final DateTime createdAt,
-    required final DateTime updatedAt,
-  }) = _$BusinessImpl;
+  const factory _Business(
+      {required final String id,
+      required final String name,
+      required final String description,
+      required final String address,
+      required final String city,
+      required final String state,
+      required final String zipCode,
+      required final String country,
+      final String? website,
+      final String? phoneNumber,
+      final String? email,
+      final List<String>? images,
+      final double? rating,
+      final int? reviewCount,
+      required final bool isActive,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$BusinessImpl;
 
   factory _Business.fromJson(Map<String, dynamic> json) =
       _$BusinessImpl.fromJson;

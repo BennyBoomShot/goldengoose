@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "417617662738",
+    "project_id": "goldengoose-app",
+    "storage_bucket": "goldengoose-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417617662738:android:cc5a5bbfcc03c2ac0359cb",
+        "android_client_info": {
+          "package_name": "com.bentech.goldengoose"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEvX_upcGC49MM8iKbNoq79cZbQbuUEss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,8 @@
 🧭 FLUTTER APP ARCHITECTURE MAP
 (Focused on Error Handling, Exception Management, Reusability)
 
+https://github.com/firebase/firebase-ios-sdk
+
 ────────────────────────────────────────
 ENTRY POINT
 ────────────────────────────────────────

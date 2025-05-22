@@ -12,8 +12,7 @@ part of 'app_exception.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppException {
@@ -27,7 +26,8 @@ mixin _$AppException {
     required TResult Function(String? message) unauthorized,
     required TResult Function(String? message) notFound,
     required TResult Function(String? message) unknown,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? networkError,
@@ -37,7 +37,8 @@ mixin _$AppException {
     TResult? Function(String? message)? unauthorized,
     TResult? Function(String? message)? notFound,
     TResult? Function(String? message)? unknown,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? networkError,
@@ -48,7 +49,8 @@ mixin _$AppException {
     TResult Function(String? message)? notFound,
     TResult Function(String? message)? unknown,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NetworkException value) networkError,
@@ -58,7 +60,8 @@ mixin _$AppException {
     required TResult Function(UnauthorizedException value) unauthorized,
     required TResult Function(NotFoundException value) notFound,
     required TResult Function(UnknownException value) unknown,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NetworkException value)? networkError,
@@ -68,7 +71,8 @@ mixin _$AppException {
     TResult? Function(UnauthorizedException value)? unauthorized,
     TResult? Function(NotFoundException value)? notFound,
     TResult? Function(UnknownException value)? unknown,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NetworkException value)? networkError,
@@ -79,7 +83,8 @@ mixin _$AppException {
     TResult Function(NotFoundException value)? notFound,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
@@ -91,9 +96,8 @@ mixin _$AppException {
 /// @nodoc
 abstract class $AppExceptionCopyWith<$Res> {
   factory $AppExceptionCopyWith(
-    AppException value,
-    $Res Function(AppException) then,
-  ) = _$AppExceptionCopyWithImpl<$Res, AppException>;
+          AppException value, $Res Function(AppException) then) =
+      _$AppExceptionCopyWithImpl<$Res, AppException>;
   @useResult
   $Res call({String? message});
 }
@@ -112,27 +116,24 @@ class _$AppExceptionCopyWithImpl<$Res, $Val extends AppException>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _value.copyWith(
-            message:
-                freezed == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$NetworkExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$NetworkExceptionImplCopyWith(
-    _$NetworkExceptionImpl value,
-    $Res Function(_$NetworkExceptionImpl) then,
-  ) = __$$NetworkExceptionImplCopyWithImpl<$Res>;
+  factory _$$NetworkExceptionImplCopyWith(_$NetworkExceptionImpl value,
+          $Res Function(_$NetworkExceptionImpl) then) =
+      __$$NetworkExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -142,24 +143,23 @@ abstract class _$$NetworkExceptionImplCopyWith<$Res>
 class __$$NetworkExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$NetworkExceptionImpl>
     implements _$$NetworkExceptionImplCopyWith<$Res> {
-  __$$NetworkExceptionImplCopyWithImpl(
-    _$NetworkExceptionImpl _value,
-    $Res Function(_$NetworkExceptionImpl) _then,
-  ) : super(_value, _then);
+  __$$NetworkExceptionImplCopyWithImpl(_$NetworkExceptionImpl _value,
+      $Res Function(_$NetworkExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$NetworkExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$NetworkExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -194,9 +194,7 @@ class _$NetworkExceptionImpl implements NetworkException {
   @pragma('vm:prefer-inline')
   _$$NetworkExceptionImplCopyWith<_$NetworkExceptionImpl> get copyWith =>
       __$$NetworkExceptionImplCopyWithImpl<_$NetworkExceptionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -309,10 +307,9 @@ abstract class NetworkException implements AppException {
 /// @nodoc
 abstract class _$$ServerExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$ServerExceptionImplCopyWith(
-    _$ServerExceptionImpl value,
-    $Res Function(_$ServerExceptionImpl) then,
-  ) = __$$ServerExceptionImplCopyWithImpl<$Res>;
+  factory _$$ServerExceptionImplCopyWith(_$ServerExceptionImpl value,
+          $Res Function(_$ServerExceptionImpl) then) =
+      __$$ServerExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -323,23 +320,22 @@ class __$$ServerExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$ServerExceptionImpl>
     implements _$$ServerExceptionImplCopyWith<$Res> {
   __$$ServerExceptionImplCopyWithImpl(
-    _$ServerExceptionImpl _value,
-    $Res Function(_$ServerExceptionImpl) _then,
-  ) : super(_value, _then);
+      _$ServerExceptionImpl _value, $Res Function(_$ServerExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$ServerExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$ServerExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -374,9 +370,7 @@ class _$ServerExceptionImpl implements ServerException {
   @pragma('vm:prefer-inline')
   _$$ServerExceptionImplCopyWith<_$ServerExceptionImpl> get copyWith =>
       __$$ServerExceptionImplCopyWithImpl<_$ServerExceptionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -489,10 +483,9 @@ abstract class ServerException implements AppException {
 /// @nodoc
 abstract class _$$CacheExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$CacheExceptionImplCopyWith(
-    _$CacheExceptionImpl value,
-    $Res Function(_$CacheExceptionImpl) then,
-  ) = __$$CacheExceptionImplCopyWithImpl<$Res>;
+  factory _$$CacheExceptionImplCopyWith(_$CacheExceptionImpl value,
+          $Res Function(_$CacheExceptionImpl) then) =
+      __$$CacheExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -503,23 +496,22 @@ class __$$CacheExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$CacheExceptionImpl>
     implements _$$CacheExceptionImplCopyWith<$Res> {
   __$$CacheExceptionImplCopyWithImpl(
-    _$CacheExceptionImpl _value,
-    $Res Function(_$CacheExceptionImpl) _then,
-  ) : super(_value, _then);
+      _$CacheExceptionImpl _value, $Res Function(_$CacheExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$CacheExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$CacheExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -554,9 +546,7 @@ class _$CacheExceptionImpl implements CacheException {
   @pragma('vm:prefer-inline')
   _$$CacheExceptionImplCopyWith<_$CacheExceptionImpl> get copyWith =>
       __$$CacheExceptionImplCopyWithImpl<_$CacheExceptionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -669,9 +659,9 @@ abstract class CacheException implements AppException {
 abstract class _$$InvalidInputExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
   factory _$$InvalidInputExceptionImplCopyWith(
-    _$InvalidInputExceptionImpl value,
-    $Res Function(_$InvalidInputExceptionImpl) then,
-  ) = __$$InvalidInputExceptionImplCopyWithImpl<$Res>;
+          _$InvalidInputExceptionImpl value,
+          $Res Function(_$InvalidInputExceptionImpl) then) =
+      __$$InvalidInputExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -681,24 +671,23 @@ abstract class _$$InvalidInputExceptionImplCopyWith<$Res>
 class __$$InvalidInputExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$InvalidInputExceptionImpl>
     implements _$$InvalidInputExceptionImplCopyWith<$Res> {
-  __$$InvalidInputExceptionImplCopyWithImpl(
-    _$InvalidInputExceptionImpl _value,
-    $Res Function(_$InvalidInputExceptionImpl) _then,
-  ) : super(_value, _then);
+  __$$InvalidInputExceptionImplCopyWithImpl(_$InvalidInputExceptionImpl _value,
+      $Res Function(_$InvalidInputExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$InvalidInputExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$InvalidInputExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -732,11 +721,8 @@ class _$InvalidInputExceptionImpl implements InvalidInputException {
   @override
   @pragma('vm:prefer-inline')
   _$$InvalidInputExceptionImplCopyWith<_$InvalidInputExceptionImpl>
-  get copyWith =>
-      __$$InvalidInputExceptionImplCopyWithImpl<_$InvalidInputExceptionImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$InvalidInputExceptionImplCopyWithImpl<
+          _$InvalidInputExceptionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -843,16 +829,16 @@ abstract class InvalidInputException implements AppException {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InvalidInputExceptionImplCopyWith<_$InvalidInputExceptionImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UnauthorizedExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
   factory _$$UnauthorizedExceptionImplCopyWith(
-    _$UnauthorizedExceptionImpl value,
-    $Res Function(_$UnauthorizedExceptionImpl) then,
-  ) = __$$UnauthorizedExceptionImplCopyWithImpl<$Res>;
+          _$UnauthorizedExceptionImpl value,
+          $Res Function(_$UnauthorizedExceptionImpl) then) =
+      __$$UnauthorizedExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -862,24 +848,23 @@ abstract class _$$UnauthorizedExceptionImplCopyWith<$Res>
 class __$$UnauthorizedExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$UnauthorizedExceptionImpl>
     implements _$$UnauthorizedExceptionImplCopyWith<$Res> {
-  __$$UnauthorizedExceptionImplCopyWithImpl(
-    _$UnauthorizedExceptionImpl _value,
-    $Res Function(_$UnauthorizedExceptionImpl) _then,
-  ) : super(_value, _then);
+  __$$UnauthorizedExceptionImplCopyWithImpl(_$UnauthorizedExceptionImpl _value,
+      $Res Function(_$UnauthorizedExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$UnauthorizedExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$UnauthorizedExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -913,11 +898,8 @@ class _$UnauthorizedExceptionImpl implements UnauthorizedException {
   @override
   @pragma('vm:prefer-inline')
   _$$UnauthorizedExceptionImplCopyWith<_$UnauthorizedExceptionImpl>
-  get copyWith =>
-      __$$UnauthorizedExceptionImplCopyWithImpl<_$UnauthorizedExceptionImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$UnauthorizedExceptionImplCopyWithImpl<
+          _$UnauthorizedExceptionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1024,16 +1006,15 @@ abstract class UnauthorizedException implements AppException {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnauthorizedExceptionImplCopyWith<_$UnauthorizedExceptionImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$NotFoundExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$NotFoundExceptionImplCopyWith(
-    _$NotFoundExceptionImpl value,
-    $Res Function(_$NotFoundExceptionImpl) then,
-  ) = __$$NotFoundExceptionImplCopyWithImpl<$Res>;
+  factory _$$NotFoundExceptionImplCopyWith(_$NotFoundExceptionImpl value,
+          $Res Function(_$NotFoundExceptionImpl) then) =
+      __$$NotFoundExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -1043,24 +1024,23 @@ abstract class _$$NotFoundExceptionImplCopyWith<$Res>
 class __$$NotFoundExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$NotFoundExceptionImpl>
     implements _$$NotFoundExceptionImplCopyWith<$Res> {
-  __$$NotFoundExceptionImplCopyWithImpl(
-    _$NotFoundExceptionImpl _value,
-    $Res Function(_$NotFoundExceptionImpl) _then,
-  ) : super(_value, _then);
+  __$$NotFoundExceptionImplCopyWithImpl(_$NotFoundExceptionImpl _value,
+      $Res Function(_$NotFoundExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$NotFoundExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$NotFoundExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -1095,9 +1075,7 @@ class _$NotFoundExceptionImpl implements NotFoundException {
   @pragma('vm:prefer-inline')
   _$$NotFoundExceptionImplCopyWith<_$NotFoundExceptionImpl> get copyWith =>
       __$$NotFoundExceptionImplCopyWithImpl<_$NotFoundExceptionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1210,10 +1188,9 @@ abstract class NotFoundException implements AppException {
 /// @nodoc
 abstract class _$$UnknownExceptionImplCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$UnknownExceptionImplCopyWith(
-    _$UnknownExceptionImpl value,
-    $Res Function(_$UnknownExceptionImpl) then,
-  ) = __$$UnknownExceptionImplCopyWithImpl<$Res>;
+  factory _$$UnknownExceptionImplCopyWith(_$UnknownExceptionImpl value,
+          $Res Function(_$UnknownExceptionImpl) then) =
+      __$$UnknownExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
@@ -1223,24 +1200,23 @@ abstract class _$$UnknownExceptionImplCopyWith<$Res>
 class __$$UnknownExceptionImplCopyWithImpl<$Res>
     extends _$AppExceptionCopyWithImpl<$Res, _$UnknownExceptionImpl>
     implements _$$UnknownExceptionImplCopyWith<$Res> {
-  __$$UnknownExceptionImplCopyWithImpl(
-    _$UnknownExceptionImpl _value,
-    $Res Function(_$UnknownExceptionImpl) _then,
-  ) : super(_value, _then);
+  __$$UnknownExceptionImplCopyWithImpl(_$UnknownExceptionImpl _value,
+      $Res Function(_$UnknownExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of AppException
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = freezed}) {
-    return _then(
-      _$UnknownExceptionImpl(
-        freezed == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ),
-    );
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$UnknownExceptionImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
@@ -1275,9 +1251,7 @@ class _$UnknownExceptionImpl implements UnknownException {
   @pragma('vm:prefer-inline')
   _$$UnknownExceptionImplCopyWith<_$UnknownExceptionImpl> get copyWith =>
       __$$UnknownExceptionImplCopyWithImpl<_$UnknownExceptionImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
