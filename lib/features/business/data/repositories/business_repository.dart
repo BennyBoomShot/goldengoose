@@ -3,8 +3,9 @@ import 'dart:typed_data';
 import '../../../../core/error/app_exception.dart';
 import '../../../../data/repositories/firebase_repository.dart';
 import '../../domain/entities/business.dart';
+import '../../domain/repositories/business_repository.dart';
 
-class BusinessRepository extends FirebaseRepository<Business> {
+class BusinessRepository extends FirebaseRepository<Business> implements IBusinessRepository {
   BusinessRepository({
     required super.firebaseDataSource,
   }) : super(
@@ -13,6 +14,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
           toJson: (business) => business.toJson(),
         );
 
+  @override
   Future<List<Business>> getBusinessesByCategory(String category) async {
     try {
       final querySnapshot = await firebaseDataSource.firestore
@@ -28,6 +30,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     }
   }
 
+  @override
   Future<List<Business>> searchBusinesses(String query) async {
     try {
       final querySnapshot = await firebaseDataSource.firestore
@@ -43,6 +46,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     }
   }
 
+  @override
   Future<List<Business>> getNearbyBusinesses(
     double latitude,
     double longitude,
@@ -75,6 +79,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     }
   }
 
+  @override
   Future<List<Business>> getPopularBusinesses() async {
     try {
       final querySnapshot = await firebaseDataSource.firestore
@@ -90,6 +95,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     }
   }
 
+  @override
   Future<void> updateBusinessRating(
     String businessId,
     double newRating,
@@ -148,6 +154,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     return degree * (math.pi / 180);
   }
 
+  @override
   Future<void> uploadBusinessImage(String businessId, Uint8List imageBytes) async {
     final path = 'businesses/$businessId/images/${DateTime.now().millisecondsSinceEpoch}';
     final imageUrl = await uploadFile(path, imageBytes);
@@ -178,6 +185,7 @@ class BusinessRepository extends FirebaseRepository<Business> {
     }
   }
 
+  @override
   Future<List<Business>> getBusinesses() async {
     return getPopularBusinesses();
   }

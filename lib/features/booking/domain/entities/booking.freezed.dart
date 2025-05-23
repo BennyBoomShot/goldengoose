@@ -26,7 +26,18 @@ mixin _$Booking {
   String get serviceId => throw _privateConstructorUsedError;
   DateTime get startTime => throw _privateConstructorUsedError;
   DateTime get endTime => throw _privateConstructorUsedError;
-  double get totalAmount => throw _privateConstructorUsedError;
+
+  /// The total price for the booking.
+  double get total => throw _privateConstructorUsedError;
+
+  /// The business owner's userId (for notifications).
+  String? get businessOwnerId => throw _privateConstructorUsedError;
+
+  /// The user's display name (for notifications).
+  String? get userName => throw _privateConstructorUsedError;
+
+  /// The service's display name (for notifications).
+  String? get serviceName => throw _privateConstructorUsedError;
   String? get notes => throw _privateConstructorUsedError;
   BookingStatus get status => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -53,7 +64,10 @@ abstract class $BookingCopyWith<$Res> {
       String serviceId,
       DateTime startTime,
       DateTime endTime,
-      double totalAmount,
+      double total,
+      String? businessOwnerId,
+      String? userName,
+      String? serviceName,
       String? notes,
       BookingStatus status,
       DateTime createdAt,
@@ -81,7 +95,10 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
     Object? serviceId = null,
     Object? startTime = null,
     Object? endTime = null,
-    Object? totalAmount = null,
+    Object? total = null,
+    Object? businessOwnerId = freezed,
+    Object? userName = freezed,
+    Object? serviceName = freezed,
     Object? notes = freezed,
     Object? status = null,
     Object? createdAt = null,
@@ -112,10 +129,22 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalAmount: null == totalAmount
-          ? _value.totalAmount
-          : totalAmount // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
+      businessOwnerId: freezed == businessOwnerId
+          ? _value.businessOwnerId
+          : businessOwnerId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      serviceName: freezed == serviceName
+          ? _value.serviceName
+          : serviceName // ignore: cast_nullable_to_non_nullable
+              as String?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -150,7 +179,10 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
       String serviceId,
       DateTime startTime,
       DateTime endTime,
-      double totalAmount,
+      double total,
+      String? businessOwnerId,
+      String? userName,
+      String? serviceName,
       String? notes,
       BookingStatus status,
       DateTime createdAt,
@@ -176,7 +208,10 @@ class __$$BookingImplCopyWithImpl<$Res>
     Object? serviceId = null,
     Object? startTime = null,
     Object? endTime = null,
-    Object? totalAmount = null,
+    Object? total = null,
+    Object? businessOwnerId = freezed,
+    Object? userName = freezed,
+    Object? serviceName = freezed,
     Object? notes = freezed,
     Object? status = null,
     Object? createdAt = null,
@@ -207,10 +242,22 @@ class __$$BookingImplCopyWithImpl<$Res>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalAmount: null == totalAmount
-          ? _value.totalAmount
-          : totalAmount // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
+      businessOwnerId: freezed == businessOwnerId
+          ? _value.businessOwnerId
+          : businessOwnerId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      serviceName: freezed == serviceName
+          ? _value.serviceName
+          : serviceName // ignore: cast_nullable_to_non_nullable
+              as String?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -241,7 +288,10 @@ class _$BookingImpl implements _Booking {
       required this.serviceId,
       required this.startTime,
       required this.endTime,
-      required this.totalAmount,
+      required this.total,
+      this.businessOwnerId,
+      this.userName,
+      this.serviceName,
       this.notes,
       this.status = BookingStatus.pending,
       required this.createdAt,
@@ -262,8 +312,22 @@ class _$BookingImpl implements _Booking {
   final DateTime startTime;
   @override
   final DateTime endTime;
+
+  /// The total price for the booking.
   @override
-  final double totalAmount;
+  final double total;
+
+  /// The business owner's userId (for notifications).
+  @override
+  final String? businessOwnerId;
+
+  /// The user's display name (for notifications).
+  @override
+  final String? userName;
+
+  /// The service's display name (for notifications).
+  @override
+  final String? serviceName;
   @override
   final String? notes;
   @override
@@ -276,7 +340,7 @@ class _$BookingImpl implements _Booking {
 
   @override
   String toString() {
-    return 'Booking(id: $id, userId: $userId, businessId: $businessId, serviceId: $serviceId, startTime: $startTime, endTime: $endTime, totalAmount: $totalAmount, notes: $notes, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Booking(id: $id, userId: $userId, businessId: $businessId, serviceId: $serviceId, startTime: $startTime, endTime: $endTime, total: $total, businessOwnerId: $businessOwnerId, userName: $userName, serviceName: $serviceName, notes: $notes, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -293,8 +357,13 @@ class _$BookingImpl implements _Booking {
             (identical(other.startTime, startTime) ||
                 other.startTime == startTime) &&
             (identical(other.endTime, endTime) || other.endTime == endTime) &&
-            (identical(other.totalAmount, totalAmount) ||
-                other.totalAmount == totalAmount) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.businessOwnerId, businessOwnerId) ||
+                other.businessOwnerId == businessOwnerId) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.serviceName, serviceName) ||
+                other.serviceName == serviceName) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.createdAt, createdAt) ||
@@ -313,7 +382,10 @@ class _$BookingImpl implements _Booking {
       serviceId,
       startTime,
       endTime,
-      totalAmount,
+      total,
+      businessOwnerId,
+      userName,
+      serviceName,
       notes,
       status,
       createdAt,
@@ -343,7 +415,10 @@ abstract class _Booking implements Booking {
       required final String serviceId,
       required final DateTime startTime,
       required final DateTime endTime,
-      required final double totalAmount,
+      required final double total,
+      final String? businessOwnerId,
+      final String? userName,
+      final String? serviceName,
       final String? notes,
       final BookingStatus status,
       required final DateTime createdAt,
@@ -363,8 +438,22 @@ abstract class _Booking implements Booking {
   DateTime get startTime;
   @override
   DateTime get endTime;
+
+  /// The total price for the booking.
   @override
-  double get totalAmount;
+  double get total;
+
+  /// The business owner's userId (for notifications).
+  @override
+  String? get businessOwnerId;
+
+  /// The user's display name (for notifications).
+  @override
+  String? get userName;
+
+  /// The service's display name (for notifications).
+  @override
+  String? get serviceName;
   @override
   String? get notes;
   @override

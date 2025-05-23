@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import '../providers/locale_provider.dart';
 
 class LanguageSwitcher extends ConsumerWidget {
-  const LanguageSwitcher({Key? key}) : super(key: key);
+  const LanguageSwitcher({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

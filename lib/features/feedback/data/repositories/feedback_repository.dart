@@ -1,14 +1,12 @@
 import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
 import 'package:goldengoose/data/repositories/firebase_repository.dart';
 import 'package:goldengoose/features/feedback/domain/entities/feedback.dart';
 import 'package:goldengoose/core/error/app_exception.dart';
 
 class FeedbackRepository extends FirebaseRepository<Feedback> {
   FeedbackRepository({
-    required FirebaseDataSource firebaseDataSource,
+    required super.firebaseDataSource,
   }) : super(
-          firebaseDataSource: firebaseDataSource,
           collection: 'feedbacks',
           fromJson: (json) => Feedback.fromJson(json),
           toJson: (feedback) => feedback.toJson(),

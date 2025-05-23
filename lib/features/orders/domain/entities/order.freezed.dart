@@ -24,10 +24,16 @@ mixin _$Order {
   String get userId => throw _privateConstructorUsedError;
   String get businessId => throw _privateConstructorUsedError;
   List<OrderItem> get items => throw _privateConstructorUsedError;
-  double get totalAmount => throw _privateConstructorUsedError;
+  double get total => throw _privateConstructorUsedError;
   OrderStatus get status => throw _privateConstructorUsedError;
   String? get paymentIntentId => throw _privateConstructorUsedError;
+  String? get paymentStatus => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get deliveryInfo => throw _privateConstructorUsedError;
+  String? get customerContact => throw _privateConstructorUsedError;
+  double? get discount => throw _privateConstructorUsedError;
+  double? get tax => throw _privateConstructorUsedError;
   String? get notes => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
@@ -50,10 +56,16 @@ abstract class $OrderCopyWith<$Res> {
       String userId,
       String businessId,
       List<OrderItem> items,
-      double totalAmount,
+      double total,
       OrderStatus status,
       String? paymentIntentId,
+      String? paymentStatus,
+      Map<String, dynamic>? deliveryInfo,
+      String? customerContact,
+      double? discount,
+      double? tax,
       String? notes,
+      bool isDeleted,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -77,10 +89,16 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? userId = null,
     Object? businessId = null,
     Object? items = null,
-    Object? totalAmount = null,
+    Object? total = null,
     Object? status = null,
     Object? paymentIntentId = freezed,
+    Object? paymentStatus = freezed,
+    Object? deliveryInfo = freezed,
+    Object? customerContact = freezed,
+    Object? discount = freezed,
+    Object? tax = freezed,
     Object? notes = freezed,
+    Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -101,9 +119,9 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<OrderItem>,
-      totalAmount: null == totalAmount
-          ? _value.totalAmount
-          : totalAmount // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
       status: null == status
           ? _value.status
@@ -113,10 +131,34 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.paymentIntentId
           : paymentIntentId // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentStatus: freezed == paymentStatus
+          ? _value.paymentStatus
+          : paymentStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryInfo: freezed == deliveryInfo
+          ? _value.deliveryInfo
+          : deliveryInfo // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      customerContact: freezed == customerContact
+          ? _value.customerContact
+          : customerContact // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String?,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -141,10 +183,16 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       String userId,
       String businessId,
       List<OrderItem> items,
-      double totalAmount,
+      double total,
       OrderStatus status,
       String? paymentIntentId,
+      String? paymentStatus,
+      Map<String, dynamic>? deliveryInfo,
+      String? customerContact,
+      double? discount,
+      double? tax,
       String? notes,
+      bool isDeleted,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -166,10 +214,16 @@ class __$$OrderImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? businessId = null,
     Object? items = null,
-    Object? totalAmount = null,
+    Object? total = null,
     Object? status = null,
     Object? paymentIntentId = freezed,
+    Object? paymentStatus = freezed,
+    Object? deliveryInfo = freezed,
+    Object? customerContact = freezed,
+    Object? discount = freezed,
+    Object? tax = freezed,
     Object? notes = freezed,
+    Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -190,9 +244,9 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<OrderItem>,
-      totalAmount: null == totalAmount
-          ? _value.totalAmount
-          : totalAmount // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as double,
       status: null == status
           ? _value.status
@@ -202,10 +256,34 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.paymentIntentId
           : paymentIntentId // ignore: cast_nullable_to_non_nullable
               as String?,
+      paymentStatus: freezed == paymentStatus
+          ? _value.paymentStatus
+          : paymentStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryInfo: freezed == deliveryInfo
+          ? _value._deliveryInfo
+          : deliveryInfo // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      customerContact: freezed == customerContact
+          ? _value.customerContact
+          : customerContact // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as String?,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -226,13 +304,20 @@ class _$OrderImpl implements _Order {
       required this.userId,
       required this.businessId,
       required final List<OrderItem> items,
-      required this.totalAmount,
+      required this.total,
       required this.status,
       this.paymentIntentId,
+      this.paymentStatus,
+      final Map<String, dynamic>? deliveryInfo,
+      this.customerContact,
+      this.discount,
+      this.tax,
       this.notes,
+      this.isDeleted = false,
       required this.createdAt,
       required this.updatedAt})
-      : _items = items;
+      : _items = items,
+        _deliveryInfo = deliveryInfo;
 
   factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrderImplFromJson(json);
@@ -252,13 +337,34 @@ class _$OrderImpl implements _Order {
   }
 
   @override
-  final double totalAmount;
+  final double total;
   @override
   final OrderStatus status;
   @override
   final String? paymentIntentId;
   @override
+  final String? paymentStatus;
+  final Map<String, dynamic>? _deliveryInfo;
+  @override
+  Map<String, dynamic>? get deliveryInfo {
+    final value = _deliveryInfo;
+    if (value == null) return null;
+    if (_deliveryInfo is EqualUnmodifiableMapView) return _deliveryInfo;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  final String? customerContact;
+  @override
+  final double? discount;
+  @override
+  final double? tax;
+  @override
   final String? notes;
+  @override
+  @JsonKey()
+  final bool isDeleted;
   @override
   final DateTime createdAt;
   @override
@@ -266,7 +372,7 @@ class _$OrderImpl implements _Order {
 
   @override
   String toString() {
-    return 'Order(id: $id, userId: $userId, businessId: $businessId, items: $items, totalAmount: $totalAmount, status: $status, paymentIntentId: $paymentIntentId, notes: $notes, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Order(id: $id, userId: $userId, businessId: $businessId, items: $items, total: $total, status: $status, paymentIntentId: $paymentIntentId, paymentStatus: $paymentStatus, deliveryInfo: $deliveryInfo, customerContact: $customerContact, discount: $discount, tax: $tax, notes: $notes, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -279,12 +385,22 @@ class _$OrderImpl implements _Order {
             (identical(other.businessId, businessId) ||
                 other.businessId == businessId) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
-            (identical(other.totalAmount, totalAmount) ||
-                other.totalAmount == totalAmount) &&
+            (identical(other.total, total) || other.total == total) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.paymentIntentId, paymentIntentId) ||
                 other.paymentIntentId == paymentIntentId) &&
+            (identical(other.paymentStatus, paymentStatus) ||
+                other.paymentStatus == paymentStatus) &&
+            const DeepCollectionEquality()
+                .equals(other._deliveryInfo, _deliveryInfo) &&
+            (identical(other.customerContact, customerContact) ||
+                other.customerContact == customerContact) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
             (identical(other.notes, notes) || other.notes == notes) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -299,10 +415,16 @@ class _$OrderImpl implements _Order {
       userId,
       businessId,
       const DeepCollectionEquality().hash(_items),
-      totalAmount,
+      total,
       status,
       paymentIntentId,
+      paymentStatus,
+      const DeepCollectionEquality().hash(_deliveryInfo),
+      customerContact,
+      discount,
+      tax,
       notes,
+      isDeleted,
       createdAt,
       updatedAt);
 
@@ -328,10 +450,16 @@ abstract class _Order implements Order {
       required final String userId,
       required final String businessId,
       required final List<OrderItem> items,
-      required final double totalAmount,
+      required final double total,
       required final OrderStatus status,
       final String? paymentIntentId,
+      final String? paymentStatus,
+      final Map<String, dynamic>? deliveryInfo,
+      final String? customerContact,
+      final double? discount,
+      final double? tax,
       final String? notes,
+      final bool isDeleted,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$OrderImpl;
 
@@ -346,13 +474,25 @@ abstract class _Order implements Order {
   @override
   List<OrderItem> get items;
   @override
-  double get totalAmount;
+  double get total;
   @override
   OrderStatus get status;
   @override
   String? get paymentIntentId;
   @override
+  String? get paymentStatus;
+  @override
+  Map<String, dynamic>? get deliveryInfo;
+  @override
+  String? get customerContact;
+  @override
+  double? get discount;
+  @override
+  double? get tax;
+  @override
   String? get notes;
+  @override
+  bool get isDeleted;
   @override
   DateTime get createdAt;
   @override

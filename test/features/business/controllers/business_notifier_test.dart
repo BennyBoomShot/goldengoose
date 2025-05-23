@@ -43,7 +43,7 @@ void main() {
       when(mockRepository.getPopularBusinesses()).thenThrow(AppException.networkError('fail'));
       await notifier.fetchBusinesses();
       expect(notifier.state, isA<AsyncState<List<Business>>>());
-      expect((notifier.state as AsyncState<List<Business>>).maybeWhen(
+      expect((notifier.state).maybeWhen(
         error: (msg) => msg,
         orElse: () => null,
       ), contains('fail'));

@@ -34,8 +34,8 @@ class _FakeFirestore {
 }
 class _FakeCollection {
   dynamic doc([_]) => _FakeDoc();
-  dynamic where([_a, _b, _c]) => this;
-  dynamic orderBy([_a, _b]) => this;
+  dynamic where([a, b, c]) => this;
+  dynamic orderBy([a, b]) => this;
   dynamic get() => _FakeQuerySnapshot();
 }
 class _FakeDoc {

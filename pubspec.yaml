@@ -32,6 +32,7 @@ dependencies:
   firebase_auth: ^5.5.4
   cloud_firestore: ^5.6.8
   firebase_storage: ^12.4.6
+  firebase_messaging: ^15.2.6
 
   # Google Services
   google_sign_in: ^6.2.1

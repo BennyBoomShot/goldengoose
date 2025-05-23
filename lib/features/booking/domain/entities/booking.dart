@@ -20,7 +20,14 @@ class Booking with _$Booking {
     required String serviceId,
     required DateTime startTime,
     required DateTime endTime,
-    required double totalAmount,
+    /// The total price for the booking.
+    required double total,
+    /// The business owner's userId (for notifications).
+    String? businessOwnerId,
+    /// The user's display name (for notifications).
+    String? userName,
+    /// The service's display name (for notifications).
+    String? serviceName,
     String? notes,
     @Default(BookingStatus.pending) BookingStatus status,
     required DateTime createdAt,

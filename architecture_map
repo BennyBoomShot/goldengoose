@@ -18,56 +18,56 @@ app.dart
 CORE MODULES
 ────────────────────────────────────────
 core/
-├── config/       → env flags, constants
-├── error/        → AppException, Failure
-├── logger/       → crash logs, dev logs
-└── services/     → global services (API, auth)
+├── config/       → env flags, constants [✓]
+├── error/        → AppException, Failure [✓] (uses Freezed)
+├── logger/       → crash logs, dev logs [✓]
+└── services/     → global services (API, auth) [~] (NotificationService [✓], TextRecognitionService [~])
 
 ────────────────────────────────────────
 DOMAIN LAYER
 ────────────────────────────────────────
 domain/
-├── entities/     → DomainModel<T>
-├── usecases/     → Logic functions
-└── repositories/ → Abstract contracts
+├── entities/     → DomainModel<T> (User, Business, Product, Order, Service, Feedback, Device) [✓] (uses Freezed)
+├── usecases/     → Logic functions [~] (Order, Booking in progress)
+└── repositories/ → Abstract contracts [✓]
 
 ────────────────────────────────────────
 DATA LAYER
 ────────────────────────────────────────
 data/
-├── models/       → DataModel<T>
-├── datasources/  → API, DB, cache
-├── repositories/ → Repo implementations
-└── mappers/      → toDomain() converters
+├── models/       → DataModel<T> (User, Business, Product, Order, Service, Feedback, Device) [✓]
+├── datasources/  → API, DB, cache (Firebase, Google, Stripe) [✓]
+├── repositories/ → Repo implementations [✓]
+└── mappers/      → toDomain() converters [✓]
 
 ────────────────────────────────────────
 UI / PRESENTATION
 ────────────────────────────────────────
 presentation/
-├── pages/        → Screens
-├── widgets/      → UI components
-├── providers/    → State (Riverpod/BLoC)
-└── themes/       → ThemeData, colors
+├── pages/        → Screens [ ] Not started
+├── widgets/      → UI components [ ] Not started
+├── providers/    → State (Riverpod/BLoC) [ ] Not started
+└── themes/       → ThemeData, colors [ ] Not started
 
 ────────────────────────────────────────
 SHARED MODULES
 ────────────────────────────────────────
 shared/
-├── constants/    → App-wide values
-├── extensions/   → .toFormattedString()
-├── mixins/       → Shared behaviors
-├── models/       → UIModel<T>
-└── widgets/      → Reusable UI components
+├── constants/    → App-wide values [✓]
+├── extensions/   → .toFormattedString() [✓]
+├── mixins/       → Shared behaviors [✓]
+├── models/       → UIModel<T> (Review, Notification) [✓]
+└── widgets/      → Reusable UI components [✓]
 
 ────────────────────────────────────────
 FEATURE MODULES
 ────────────────────────────────────────
 features/
-├── user/
-├── booking/
-├── feedback/
-├── business/
-└── service/
+├── user/         [✓] (User model, UserRepository)
+├── booking/      [~] (Booking model, BookingRepository)
+├── feedback/     [~] (Feedback model, FeedbackRepository)
+├── business/     [✓] (Business model, BusinessRepository)
+└── service/      [✓] (Service model, ServiceRepository)
 (Each has: data/, domain/, presentation/, ui_models/)
 
 ────────────────────────────────────────
@@ -84,16 +84,16 @@ MODEL FLOW
 ────────────────────────────────────────
 CATEGORIZED MODELS
 ────────────────────────────────────────
-📂 PEOPLE       → User, Staff, Role, Customer
-📂 INFORMATION  → Business, Location, Profile, Review
-📂 TOOLS        → Service, Booking, Invoice, Schedule, AuthToken
+📂 PEOPLE       → User, Staff, Role, Customer [✓]
+📂 INFORMATION  → Business, Location, Profile, Review [✓]
+📂 TOOLS        → Service, Booking, Invoice, Schedule, AuthToken [~]
 
 ────────────────────────────────────────
 WIDGET PATTERNS
 ────────────────────────────────────────
-ReactiveSection<T>     → Reactive block
-AsyncRenderer<T>       → Handles loading/error/data
-ErrorNotice            → Inline error UI
-InputField             → Form-safe input
-ThemedTile             → Universal tile layout
-AdaptiveSection        → Screen-size logic 
+ReactiveSection<T>     → Reactive block [✓]
+AsyncRenderer<T>       → Handles loading/error/data [✓]
+ErrorNotice            → Inline error UI [✓]
+InputField             → Form-safe input [✓]
+ThemedTile             → Universal tile layout [✓]
+AdaptiveSection        → Screen-size logic [✓] 

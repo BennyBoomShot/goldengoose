@@ -63,4 +63,42 @@ void main() {
     expect(result, logos);
     verify(() => mockCloudVisionService.detectLogosWithCloudVision(imagePath, apiKey)).called(1);
   });
+
+  test('captureAndDetectLogo returns success when image and logos are found', () async {
+    const apiKey = 'test-api-key';
+    final mockFile = XFile('path/to/image.jpg');
+    final mockLogos = ['Logo1', 'Logo2'];
+    when(() => mockImageService.pickImageFromCamera()).thenAnswer((_) async => mockFile);
+    when(() => mockCloudVisionService.detectLogosWithCloudVision(mockFile.path, apiKey)).thenAnswer((_) async => mockLogos);
+    final result = await controller.captureAndDetectLogo(apiKey);
+    expect(result.isSuccess, true);
+    expect(result.imagePath, mockFile.path);
+    expect(result.logos, mockLogos);
+  });
+
+  test('captureAndDetectLogo returns failure when no image is captured', () async {
+    const apiKey = 'test-api-key';
+    when(() => mockImageService.pickImageFromCamera()).thenAnswer((_) async => null);
+    final result = await controller.captureAndDetectLogo(apiKey);
+    expect(result.isSuccess, false);
+    expect(result.error, isNotNull);
+  });
+
+  test('captureAndExtractMenuText returns success when image and text are found', () async {
+    final mockFile = XFile('path/to/image.jpg');
+    const mockText = 'Menu Item 1\nMenu Item 2';
+    when(() => mockImageService.pickImageFromCamera()).thenAnswer((_) async => mockFile);
+    when(() => mockTextRecognitionService.extractTextFromImage(mockFile.path)).thenAnswer((_) async => mockText);
+    final result = await controller.captureAndExtractMenuText();
+    expect(result.isSuccess, true);
+    expect(result.imagePath, mockFile.path);
+    expect(result.text, mockText);
+  });
+
+  test('captureAndExtractMenuText returns failure when no image is captured', () async {
+    when(() => mockImageService.pickImageFromCamera()).thenAnswer((_) async => null);
+    final result = await controller.captureAndExtractMenuText();
+    expect(result.isSuccess, false);
+    expect(result.error, isNotNull);
+  });
 } 

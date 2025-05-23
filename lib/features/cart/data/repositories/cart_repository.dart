@@ -1,14 +1,12 @@
 import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
 import 'package:goldengoose/data/repositories/firebase_repository.dart';
 import 'package:goldengoose/features/cart/domain/entities/cart.dart';
 import 'package:goldengoose/core/error/app_exception.dart';
 
 class CartRepository extends FirebaseRepository<Cart> {
   CartRepository({
-    required FirebaseDataSource firebaseDataSource,
+    required super.firebaseDataSource,
   }) : super(
-          firebaseDataSource: firebaseDataSource,
           collection: 'carts',
           fromJson: (json) => Cart.fromJson(json),
           toJson: (cart) => cart.toJson(),

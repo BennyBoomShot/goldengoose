@@ -1,14 +1,12 @@
 import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
 import 'package:goldengoose/data/repositories/firebase_repository.dart';
 import 'package:goldengoose/features/products/domain/entities/product.dart';
 import 'package:goldengoose/core/error/app_exception.dart';
 
 class ProductRepository extends FirebaseRepository<Product> {
   ProductRepository({
-    required FirebaseDataSource firebaseDataSource,
+    required super.firebaseDataSource,
   }) : super(
-          firebaseDataSource: firebaseDataSource,
           collection: 'products',
           fromJson: (json) => Product.fromJson(json),
           toJson: (product) => product.toJson(),

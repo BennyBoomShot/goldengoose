@@ -1,8 +1,9 @@
 import '../../../../core/error/app_exception.dart';
 import '../../../../data/repositories/firebase_repository.dart';
 import '../../domain/entities/booking.dart';
+import '../../domain/repositories/booking_repository.dart';
 
-class BookingRepository extends FirebaseRepository<Booking> {
+class BookingRepository extends FirebaseRepository<Booking> implements IBookingRepository {
   BookingRepository({
     required super.firebaseDataSource,
   }) : super(
@@ -11,6 +12,27 @@ class BookingRepository extends FirebaseRepository<Booking> {
           toJson: (booking) => booking.toJson(),
         );
 
+  @override
+  Future<void> createBooking(Booking booking) async {
+    await create(booking);
+  }
+
+  @override
+  Future<Booking?> getBooking(String bookingId) async {
+    return get(bookingId);
+  }
+
+  @override
+  Future<void> updateBooking(Booking booking) async {
+    await update(booking);
+  }
+
+  @override
+  Future<void> deleteBooking(String bookingId) async {
+    await delete(bookingId);
+  }
+
+  @override
   Future<List<Booking>> getUserBookings(String userId) async {
     try {
       final querySnapshot = await firebaseDataSource.firestore
@@ -26,6 +48,7 @@ class BookingRepository extends FirebaseRepository<Booking> {
     }
   }
 
+  @override
   Future<List<Booking>> getBusinessBookings(String businessId) async {
     try {
       final querySnapshot = await firebaseDataSource.firestore
@@ -41,6 +64,7 @@ class BookingRepository extends FirebaseRepository<Booking> {
     }
   }
 
+  @override
   Future<List<Booking>> getUpcomingBookings(String userId) async {
     try {
       final now = DateTime.now();
@@ -58,6 +82,7 @@ class BookingRepository extends FirebaseRepository<Booking> {
     }
   }
 
+  @override
   Future<void> updateBookingStatus(String bookingId, BookingStatus status) async {
     try {
       final booking = await get(bookingId);
@@ -72,7 +97,10 @@ class BookingRepository extends FirebaseRepository<Booking> {
         serviceId: booking.serviceId,
         startTime: booking.startTime,
         endTime: booking.endTime,
-        totalAmount: booking.totalAmount,
+        total: booking.total,
+        businessOwnerId: booking.businessOwnerId,
+        userName: booking.userName,
+        serviceName: booking.serviceName,
         notes: booking.notes,
         status: status,
         createdAt: booking.createdAt,
@@ -85,6 +113,7 @@ class BookingRepository extends FirebaseRepository<Booking> {
     }
   }
 
+  @override
   Future<List<Booking>> getBookingsByDateRange(
     String businessId,
     DateTime startDate,
