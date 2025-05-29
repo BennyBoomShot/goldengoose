@@ -1,12 +1,13 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:goldengoose/features/user/data/repositories/user_repository.dart';
-import 'package:goldengoose/features/user/domain/entities/user.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
 import 'dart:typed_data';
-import 'package:firebase_auth/firebase_auth.dart' as auth;
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_storage/firebase_storage.dart' as storage;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:goldengoose/core/repositories/user_repository.dart';
+import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
+import 'package:goldengoose/core/models/user.dart';
+import 'package:mocktail/mocktail.dart';
 
 class MockFirebaseDataSource extends Mock implements FirebaseDataSource {}
 

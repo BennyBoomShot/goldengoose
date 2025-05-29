@@ -1,5 +1,7 @@
 import 'package:google_sign_in/google_sign_in.dart';
+
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../base_remote_data_source.dart';
 
 class GoogleDataSource implements BaseRemoteDataSource {
@@ -17,7 +19,8 @@ class GoogleDataSource implements BaseRemoteDataSource {
         ],
       );
     } catch (e) {
-      throw AppException.unknown('Failed to initialize Google Services: $e');
+      AppLogger.error('Google error', e, StackTrace.current);
+      throw AppException.serverError('Failed to initialize Google Services');
     }
   }
 

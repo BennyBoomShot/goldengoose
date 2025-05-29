@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:goldengoose/features/shared/models/notification.dart';
+
+import '../../models/notification.dart';
 
 class NotificationRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+
 import '../repositories/business_repository.dart';
 
 class UploadBusinessImage {

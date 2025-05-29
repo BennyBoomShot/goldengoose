@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goldengoose/features/orders/data/repositories/order_repository.dart';
-import 'package:goldengoose/features/orders/domain/usecases/create_order.dart';
-import 'package:goldengoose/features/orders/domain/usecases/get_order.dart';
-import 'package:goldengoose/features/orders/domain/usecases/update_order.dart';
-import 'package:goldengoose/features/orders/domain/usecases/cancel_order.dart';
-import 'package:goldengoose/features/orders/domain/usecases/list_orders.dart';
-import 'package:goldengoose/features/orders/domain/usecases/list_orders_by_user.dart';
-import 'package:goldengoose/features/orders/domain/usecases/list_orders_by_business.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
+
+import '../../data/datasources/remote/firebase/firebase_data_source.dart';
+import '../../features/orders/data/repositories/order_repository.dart';
+import '../../features/orders/domain/use_cases/cancel_order.dart';
+import '../../features/orders/domain/use_cases/create_order.dart';
+import '../../features/orders/domain/use_cases/get_order.dart';
+import '../../features/orders/domain/use_cases/list_orders.dart';
+import '../../features/orders/domain/use_cases/list_orders_by_business.dart';
+import '../../features/orders/domain/use_cases/list_orders_by_user.dart';
+import '../../features/orders/domain/use_cases/update_order.dart';
 
 final firebaseDataSourceProvider = Provider<FirebaseDataSource>((ref) => FirebaseDataSource());
 

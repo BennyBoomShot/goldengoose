@@ -1,8 +1,9 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:goldengoose/features/device/controllers/connectivity_provider.dart';
 import 'package:goldengoose/shared/models/async_state.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'dart:async';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

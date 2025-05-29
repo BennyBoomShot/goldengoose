@@ -1,8 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../base_remote_data_source.dart';
 
 class FirebaseDataSource implements BaseRemoteDataSource {
@@ -22,7 +24,8 @@ class FirebaseDataSource implements BaseRemoteDataSource {
       _auth = FirebaseAuth.instance;
       _storage = FirebaseStorage.instance;
     } catch (e) {
-      throw AppException.unknown('Failed to initialize Firebase: $e');
+      AppLogger.error('Firebase error', e, StackTrace.current);
+      throw AppException.serverError('Failed to initialize Firebase');
     }
   }
 

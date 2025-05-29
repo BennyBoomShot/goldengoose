@@ -1,5 +1,6 @@
-import 'package:goldengoose/features/business/domain/entities/business.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../domain/entities/business.dart';
 
 class BusinessService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

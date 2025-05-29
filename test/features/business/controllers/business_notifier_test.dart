@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:goldengoose/core/error/app_exception.dart';
+import 'package:goldengoose/features/business/controllers/business_notifier.dart';
+import 'package:goldengoose/features/business/data/repositories/business_repository.dart';
+import 'package:goldengoose/features/business/domain/entities/business.dart';
+import 'package:goldengoose/shared/models/async_state.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:goldengoose/features/business/controllers/business_notifier.dart';
-import 'package:goldengoose/features/business/domain/entities/business.dart';
-import 'package:goldengoose/features/business/data/repositories/business_repository.dart';
-import 'package:goldengoose/shared/models/async_state.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
 
 @GenerateMocks([BusinessRepository])
 import 'business_notifier_test.mocks.dart';

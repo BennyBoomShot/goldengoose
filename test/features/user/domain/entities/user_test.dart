@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:goldengoose/features/user/domain/entities/user.dart';
-
+import 'package:goldengoose/core/models/user.dart';
 void main() {
   group('User Entity', () {
     final user = User(

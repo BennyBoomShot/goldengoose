@@ -1,19 +1,26 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:goldengoose/features/user/data/repositories/user_service.dart';
-import 'package:goldengoose/features/user/data/repositories/user_repository.dart';
-import 'package:goldengoose/features/user/domain/entities/user.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:flutter_test/flutter_test.dart';
+import 'package:goldengoose/core/models/user.dart';
+import 'package:goldengoose/core/repositories/user_repository.dart';
+import 'package:goldengoose/core/services/user_service.dart';
+import 'package:goldengoose/features/auth/data/repositories/auth_repository.dart';
+import 'package:goldengoose/features/auth/domain/entities/auth_user.dart';
+import 'package:mocktail/mocktail.dart';
 
-class MockUserRepository extends Mock implements UserRepository {}
+class MockUserRepository extends Mock implements UserRepository {
+}
+
+class MockAuthRepository extends Mock implements AuthRepository {
+}
 
 void main() {
   late MockUserRepository mockUserRepository;
   late UserService userService;
-
+  late MockAuthRepository mockAuthRepository;
   setUp(() {
     mockUserRepository = MockUserRepository();
-    userService = UserService(userRepository: mockUserRepository);
+    mockAuthRepository = MockAuthRepository();
+    userService = UserService(userRepository: mockUserRepository, authRepository: mockAuthRepository);
   });
 
   group('UserService', () {
@@ -33,13 +40,10 @@ void main() {
         createdAt: now,
         updatedAt: now,
       );
-      final mockCredential = MockUserCredential();
-      final mockAuthUser = MockUserAuth();
-      when(() => mockUserRepository.createUserWithEmailAndPassword(email, password)).thenAnswer((_) async => mockCredential);
-      when(() => mockCredential.user).thenReturn(mockAuthUser);
-      when(() => mockAuthUser.uid).thenReturn(userId);
-      when(() => mockAuthUser.emailVerified).thenReturn(false);
-      when(() => mockUserRepository.create(any())).thenAnswer((_) async {});
+      final mockAuthUser = AuthUser(id: userId, email: email, isEmailVerified: false);
+      when(() => mockAuthRepository.signUp(email: email, password: password)).thenAnswer((_) async => mockAuthUser.copyWith(id: userId));
+      when(() => mockUserRepository.create(any())).thenAnswer((_) async => user);
+      when(() => mockAuthRepository.getCurrentUser()).thenAnswer((_) async => mockAuthUser);
       // Act
       final result = await userService.registerUser(
         email: email,
@@ -56,15 +60,17 @@ void main() {
       // Arrange
       final email = 'test@example.com';
       final password = 'password';
+      final userId = 'user123';
       final user = User(
-        id: 'user123',
+        id: userId,
         email: email,
         firstName: 'John',
         lastName: 'Doe',
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       );
-      when(() => mockUserRepository.signInWithEmailAndPassword(email, password)).thenAnswer((_) async => MockUserCredential());
+      final mockAuthUser = AuthUser(id: userId, email: email, isEmailVerified: false);
+      when(() => mockAuthRepository.signIn(email: email, password: password)).thenAnswer((_) async => mockAuthUser);
       when(() => mockUserRepository.getCurrentUserProfile()).thenAnswer((_) async => user);
       // Act
       final result = await userService.signInUser(email: email, password: password);
@@ -78,9 +84,9 @@ void main() {
     });
 
     test('signOutUser signs out', () async {
-      when(() => mockUserRepository.signOut()).thenAnswer((_) async {});
+      when(() => mockAuthRepository.signOut()).thenAnswer((_) async {});
       await userService.signOutUser();
-      verify(() => mockUserRepository.signOut()).called(1);
+      verify(() => mockAuthRepository.signOut()).called(1);
     });
 
     test('getCurrentUserProfile returns user', () async {

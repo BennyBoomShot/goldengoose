@@ -1,5 +1,6 @@
-import '../entities/business.dart';
 import 'dart:typed_data';
+
+import '../entities/business.dart';
 
 abstract class IBusinessRepository {
   Future<List<Business>> getBusinesses();

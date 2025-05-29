@@ -1,4 +1,5 @@
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../../../../data/repositories/firebase_repository.dart';
 import '../../domain/entities/booking.dart';
 import '../../domain/repositories/booking_repository.dart';
@@ -44,7 +45,8 @@ class BookingRepository extends FirebaseRepository<Booking> implements IBookingR
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get user bookings: $e');
+      AppLogger.error('Booking error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get user bookings');
     }
   }
 
@@ -60,7 +62,8 @@ class BookingRepository extends FirebaseRepository<Booking> implements IBookingR
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get business bookings: $e');
+      AppLogger.error('Booking error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get business bookings');
     }
   }
 
@@ -78,7 +81,8 @@ class BookingRepository extends FirebaseRepository<Booking> implements IBookingR
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get upcoming bookings: $e');
+      AppLogger.error('Booking error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get upcoming bookings');
     }
   }
 
@@ -109,7 +113,8 @@ class BookingRepository extends FirebaseRepository<Booking> implements IBookingR
 
       await update(updatedBooking);
     } catch (e) {
-      throw AppException.unknown('Failed to update booking status: $e');
+      AppLogger.error('Booking error', e, StackTrace.current);
+      throw AppException.notFound('Failed to update booking status');
     }
   }
 
@@ -131,7 +136,8 @@ class BookingRepository extends FirebaseRepository<Booking> implements IBookingR
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get bookings by date range: $e');
+      AppLogger.error('Booking error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get bookings by date range');
     }
   }
 } 

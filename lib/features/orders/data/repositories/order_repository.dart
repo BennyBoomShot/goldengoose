@@ -1,7 +1,7 @@
-import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/repositories/firebase_repository.dart';
-import 'package:goldengoose/features/orders/domain/entities/order.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
+import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
+import '../../../../data/repositories/firebase_repository.dart';
+import '../../domain/entities/order.dart';
 import '../../domain/repositories/order_repository.dart';
 
 class OrderRepository extends FirebaseRepository<Order> implements IOrderRepository {
@@ -93,6 +93,7 @@ class OrderRepository extends FirebaseRepository<Order> implements IOrderReposit
           .get();
       return querySnapshot.docs.map((doc) => fromJson(doc.data())).toList();
     } catch (e) {
+      AppLogger.error('Order error', e, StackTrace.current);
       throw AppException.unknown('Failed to list orders by user: $e');
     }
   }
@@ -106,6 +107,7 @@ class OrderRepository extends FirebaseRepository<Order> implements IOrderReposit
           .get();
       return querySnapshot.docs.map((doc) => fromJson(doc.data())).toList();
     } catch (e) {
+      AppLogger.error('Order error', e, StackTrace.current);
       throw AppException.unknown('Failed to list orders by business: $e');
     }
   }

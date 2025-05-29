@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../shared/models/async_state.dart';
 
+import '../../../shared/models/async_state.dart';
+import '../../../core/error/app_exception.dart';
 class SpeechRecognitionNotifier extends StateNotifier<AsyncState<String>> {
   SpeechRecognitionNotifier() : super(const AsyncState.data(''));
   // Implement speech recognition logic here

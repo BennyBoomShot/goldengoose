@@ -1,7 +1,7 @@
-import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/repositories/firebase_repository.dart';
-import 'package:goldengoose/features/feedback/domain/entities/feedback.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
+import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
+import '../../../../data/repositories/firebase_repository.dart';
+import '../../domain/entities/feedback.dart';
 
 class FeedbackRepository extends FirebaseRepository<Feedback> {
   FeedbackRepository({
@@ -60,5 +60,26 @@ class FeedbackRepository extends FirebaseRepository<Feedback> {
       AppLogger.error('FeedbackRepository.delete error', e, st);
       throw AppException.unknown('Failed to delete feedback: $e');
     }
+  }
+
+  // Custom method to add feedback
+  Future<void> addFeedback(Feedback feedback) async {
+    await create(feedback);
+  }
+
+  // Custom method to get feedback by businessId
+  Future<List<Feedback>> getFeedback(String businessId) async {
+    try {
+      final allFeedback = await getAll();
+      return allFeedback.where((f) => f.businessId == businessId).toList();
+    } catch (e, st) {
+      AppLogger.error('FeedbackRepository.getFeedback error', e, st);
+      throw AppException.unknown('Failed to get feedback for business: $e');
+    }
+  }
+
+  // Custom method to delete feedback by id
+  Future<void> deleteFeedback(String feedbackId) async {
+    await delete(feedbackId);
   }
 } 

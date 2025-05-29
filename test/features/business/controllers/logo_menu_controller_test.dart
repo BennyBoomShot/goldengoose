@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:goldengoose/features/business/controllers/logo_menu_controller.dart';
+import 'package:goldengoose/core/services/cloud_vision_service.dart';
 import 'package:goldengoose/core/services/image_service.dart';
 import 'package:goldengoose/core/services/text_recognition_service.dart';
-import 'package:goldengoose/core/services/cloud_vision_service.dart';
+import 'package:goldengoose/features/business/controllers/logo_menu_controller.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mocktail/mocktail.dart';
 
 class MockImageService extends Mock implements ImageService {}
 class MockTextRecognitionService extends Mock implements TextRecognitionService {}

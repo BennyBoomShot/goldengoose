@@ -513,8 +513,9 @@ OrderItem _$OrderItemFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$OrderItem {
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-  Service get service => throw _privateConstructorUsedError;
+  OrderItemType get itemType => throw _privateConstructorUsedError;
+  Product? get product => throw _privateConstructorUsedError;
+  Service? get service => throw _privateConstructorUsedError;
   DateTime get scheduledTime => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -536,13 +537,15 @@ abstract class $OrderItemCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-      Service service,
+      OrderItemType itemType,
+      Product? product,
+      Service? service,
       DateTime scheduledTime,
       int quantity,
       double price});
 
-  $ServiceCopyWith<$Res> get service;
+  $ProductCopyWith<$Res>? get product;
+  $ServiceCopyWith<$Res>? get service;
 }
 
 /// @nodoc
@@ -561,7 +564,9 @@ class _$OrderItemCopyWithImpl<$Res, $Val extends OrderItem>
   @override
   $Res call({
     Object? id = null,
-    Object? service = null,
+    Object? itemType = null,
+    Object? product = freezed,
+    Object? service = freezed,
     Object? scheduledTime = null,
     Object? quantity = null,
     Object? price = null,
@@ -571,10 +576,18 @@ class _$OrderItemCopyWithImpl<$Res, $Val extends OrderItem>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      service: null == service
+      itemType: null == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as OrderItemType,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product?,
+      service: freezed == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
-              as Service,
+              as Service?,
       scheduledTime: null == scheduledTime
           ? _value.scheduledTime
           : scheduledTime // ignore: cast_nullable_to_non_nullable
@@ -594,8 +607,26 @@ class _$OrderItemCopyWithImpl<$Res, $Val extends OrderItem>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ServiceCopyWith<$Res> get service {
-    return $ServiceCopyWith<$Res>(_value.service, (value) {
+  $ProductCopyWith<$Res>? get product {
+    if (_value.product == null) {
+      return null;
+    }
+
+    return $ProductCopyWith<$Res>(_value.product!, (value) {
+      return _then(_value.copyWith(product: value) as $Val);
+    });
+  }
+
+  /// Create a copy of OrderItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ServiceCopyWith<$Res>? get service {
+    if (_value.service == null) {
+      return null;
+    }
+
+    return $ServiceCopyWith<$Res>(_value.service!, (value) {
       return _then(_value.copyWith(service: value) as $Val);
     });
   }
@@ -611,14 +642,17 @@ abstract class _$$OrderItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-      Service service,
+      OrderItemType itemType,
+      Product? product,
+      Service? service,
       DateTime scheduledTime,
       int quantity,
       double price});
 
   @override
-  $ServiceCopyWith<$Res> get service;
+  $ProductCopyWith<$Res>? get product;
+  @override
+  $ServiceCopyWith<$Res>? get service;
 }
 
 /// @nodoc
@@ -635,7 +669,9 @@ class __$$OrderItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? service = null,
+    Object? itemType = null,
+    Object? product = freezed,
+    Object? service = freezed,
     Object? scheduledTime = null,
     Object? quantity = null,
     Object? price = null,
@@ -645,10 +681,18 @@ class __$$OrderItemImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      service: null == service
+      itemType: null == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as OrderItemType,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product?,
+      service: freezed == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
-              as Service,
+              as Service?,
       scheduledTime: null == scheduledTime
           ? _value.scheduledTime
           : scheduledTime // ignore: cast_nullable_to_non_nullable
@@ -670,8 +714,9 @@ class __$$OrderItemImplCopyWithImpl<$Res>
 class _$OrderItemImpl implements _OrderItem {
   const _$OrderItemImpl(
       {required this.id,
-      @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-      required this.service,
+      required this.itemType,
+      this.product,
+      this.service,
       required this.scheduledTime,
       required this.quantity,
       required this.price});
@@ -682,8 +727,11 @@ class _$OrderItemImpl implements _OrderItem {
   @override
   final String id;
   @override
-  @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-  final Service service;
+  final OrderItemType itemType;
+  @override
+  final Product? product;
+  @override
+  final Service? service;
   @override
   final DateTime scheduledTime;
   @override
@@ -693,7 +741,7 @@ class _$OrderItemImpl implements _OrderItem {
 
   @override
   String toString() {
-    return 'OrderItem(id: $id, service: $service, scheduledTime: $scheduledTime, quantity: $quantity, price: $price)';
+    return 'OrderItem(id: $id, itemType: $itemType, product: $product, service: $service, scheduledTime: $scheduledTime, quantity: $quantity, price: $price)';
   }
 
   @override
@@ -702,6 +750,9 @@ class _$OrderItemImpl implements _OrderItem {
         (other.runtimeType == runtimeType &&
             other is _$OrderItemImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.itemType, itemType) ||
+                other.itemType == itemType) &&
+            (identical(other.product, product) || other.product == product) &&
             (identical(other.service, service) || other.service == service) &&
             (identical(other.scheduledTime, scheduledTime) ||
                 other.scheduledTime == scheduledTime) &&
@@ -712,8 +763,8 @@ class _$OrderItemImpl implements _OrderItem {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, service, scheduledTime, quantity, price);
+  int get hashCode => Object.hash(runtimeType, id, itemType, product, service,
+      scheduledTime, quantity, price);
 
   /// Create a copy of OrderItem
   /// with the given fields replaced by the non-null parameter values.
@@ -734,8 +785,9 @@ class _$OrderItemImpl implements _OrderItem {
 abstract class _OrderItem implements OrderItem {
   const factory _OrderItem(
       {required final String id,
-      @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-      required final Service service,
+      required final OrderItemType itemType,
+      final Product? product,
+      final Service? service,
       required final DateTime scheduledTime,
       required final int quantity,
       required final double price}) = _$OrderItemImpl;
@@ -746,8 +798,11 @@ abstract class _OrderItem implements OrderItem {
   @override
   String get id;
   @override
-  @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson)
-  Service get service;
+  OrderItemType get itemType;
+  @override
+  Product? get product;
+  @override
+  Service? get service;
   @override
   DateTime get scheduledTime;
   @override

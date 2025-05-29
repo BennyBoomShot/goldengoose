@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
+
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../../../../data/repositories/firebase_repository.dart';
 import '../../domain/entities/business.dart';
 import '../../domain/repositories/business_repository.dart';
@@ -26,7 +28,8 @@ class BusinessRepository extends FirebaseRepository<Business> implements IBusine
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get businesses by category: $e');
+      AppLogger.error('Business error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get businesses by category');
     }
   }
 
@@ -42,7 +45,8 @@ class BusinessRepository extends FirebaseRepository<Business> implements IBusine
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to search businesses: $e');
+      AppLogger.error('Business error', e, StackTrace.current);
+      throw AppException.notFound('Failed to search businesses');
     }
   }
 
@@ -75,7 +79,8 @@ class BusinessRepository extends FirebaseRepository<Business> implements IBusine
           })
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get nearby businesses: $e');
+      AppLogger.error('Business error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get nearby businesses');
     }
   }
 
@@ -91,7 +96,8 @@ class BusinessRepository extends FirebaseRepository<Business> implements IBusine
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get popular businesses: $e');
+      AppLogger.error('Business error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get popular businesses');
     }
   }
 
@@ -128,7 +134,8 @@ class BusinessRepository extends FirebaseRepository<Business> implements IBusine
 
       await update(updatedBusiness);
     } catch (e) {
-      throw AppException.unknown('Failed to update business rating: $e');
+      AppLogger.error('Business error', e, StackTrace.current);
+      throw AppException.notFound('Failed to update business rating');
     }
   }
 

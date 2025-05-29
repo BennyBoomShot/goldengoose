@@ -3,18 +3,17 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i7;
-import 'dart:typed_data' as _i8;
+import 'dart:async' as _i6;
+import 'dart:typed_data' as _i7;
 
-import 'package:firebase_auth/firebase_auth.dart' as _i4;
 import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart'
     as _i2;
 import 'package:goldengoose/features/business/data/repositories/business_repository.dart'
-    as _i5;
+    as _i4;
 import 'package:goldengoose/features/business/domain/entities/business.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i6;
+import 'package:mockito/src/dummies.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -51,22 +50,11 @@ class _FakeBusiness_1 extends _i1.SmartFake implements _i3.Business {
         );
 }
 
-class _FakeUserCredential_2 extends _i1.SmartFake
-    implements _i4.UserCredential {
-  _FakeUserCredential_2(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
 /// A class which mocks [BusinessRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockBusinessRepository extends _i1.Mock
-    implements _i5.BusinessRepository {
+    implements _i4.BusinessRepository {
   MockBusinessRepository() {
     _i1.throwOnMissingStub(this);
   }
@@ -83,7 +71,7 @@ class MockBusinessRepository extends _i1.Mock
   @override
   String get collection => (super.noSuchMethod(
         Invocation.getter(#collection),
-        returnValue: _i6.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#collection),
         ),
@@ -106,27 +94,27 @@ class MockBusinessRepository extends _i1.Mock
       ) as Map<String, dynamic> Function(_i3.Business));
 
   @override
-  _i7.Future<List<_i3.Business>> getBusinessesByCategory(String? category) =>
+  _i6.Future<List<_i3.Business>> getBusinessesByCategory(String? category) =>
       (super.noSuchMethod(
         Invocation.method(
           #getBusinessesByCategory,
           [category],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<List<_i3.Business>> searchBusinesses(String? query) =>
+  _i6.Future<List<_i3.Business>> searchBusinesses(String? query) =>
       (super.noSuchMethod(
         Invocation.method(
           #searchBusinesses,
           [query],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<List<_i3.Business>> getNearbyBusinesses(
+  _i6.Future<List<_i3.Business>> getNearbyBusinesses(
     double? latitude,
     double? longitude,
     double? radiusInKm,
@@ -140,20 +128,20 @@ class MockBusinessRepository extends _i1.Mock
             radiusInKm,
           ],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<List<_i3.Business>> getPopularBusinesses() => (super.noSuchMethod(
+  _i6.Future<List<_i3.Business>> getPopularBusinesses() => (super.noSuchMethod(
         Invocation.method(
           #getPopularBusinesses,
           [],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<void> updateBusinessRating(
+  _i6.Future<void> updateBusinessRating(
     String? businessId,
     double? newRating,
   ) =>
@@ -165,14 +153,14 @@ class MockBusinessRepository extends _i1.Mock
             newRating,
           ],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 
   @override
-  _i7.Future<void> uploadBusinessImage(
+  _i6.Future<void> uploadBusinessImage(
     String? businessId,
-    _i8.Uint8List? imageBytes,
+    _i7.Uint8List? imageBytes,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -182,140 +170,71 @@ class MockBusinessRepository extends _i1.Mock
             imageBytes,
           ],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 
   @override
-  _i7.Future<List<_i3.Business>> getBusinesses() => (super.noSuchMethod(
+  _i6.Future<List<_i3.Business>> getBusinesses() => (super.noSuchMethod(
         Invocation.method(
           #getBusinesses,
           [],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<_i4.User?> getCurrentUser() => (super.noSuchMethod(
-        Invocation.method(
-          #getCurrentUser,
-          [],
-        ),
-        returnValue: _i7.Future<_i4.User?>.value(),
-      ) as _i7.Future<_i4.User?>);
-
-  @override
-  _i7.Future<_i4.UserCredential> signInWithEmailAndPassword(
-    String? email,
-    String? password,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #signInWithEmailAndPassword,
-          [
-            email,
-            password,
-          ],
-        ),
-        returnValue: _i7.Future<_i4.UserCredential>.value(_FakeUserCredential_2(
-          this,
-          Invocation.method(
-            #signInWithEmailAndPassword,
-            [
-              email,
-              password,
-            ],
-          ),
-        )),
-      ) as _i7.Future<_i4.UserCredential>);
-
-  @override
-  _i7.Future<_i4.UserCredential> createUserWithEmailAndPassword(
-    String? email,
-    String? password,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #createUserWithEmailAndPassword,
-          [
-            email,
-            password,
-          ],
-        ),
-        returnValue: _i7.Future<_i4.UserCredential>.value(_FakeUserCredential_2(
-          this,
-          Invocation.method(
-            #createUserWithEmailAndPassword,
-            [
-              email,
-              password,
-            ],
-          ),
-        )),
-      ) as _i7.Future<_i4.UserCredential>);
-
-  @override
-  _i7.Future<void> signOut() => (super.noSuchMethod(
-        Invocation.method(
-          #signOut,
-          [],
-        ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
-
-  @override
-  _i7.Future<_i3.Business?> get(String? id) => (super.noSuchMethod(
+  _i6.Future<_i3.Business?> get(String? id) => (super.noSuchMethod(
         Invocation.method(
           #get,
           [id],
         ),
-        returnValue: _i7.Future<_i3.Business?>.value(),
-      ) as _i7.Future<_i3.Business?>);
+        returnValue: _i6.Future<_i3.Business?>.value(),
+      ) as _i6.Future<_i3.Business?>);
 
   @override
-  _i7.Future<List<_i3.Business>> getAll() => (super.noSuchMethod(
+  _i6.Future<List<_i3.Business>> getAll() => (super.noSuchMethod(
         Invocation.method(
           #getAll,
           [],
         ),
-        returnValue: _i7.Future<List<_i3.Business>>.value(<_i3.Business>[]),
-      ) as _i7.Future<List<_i3.Business>>);
+        returnValue: _i6.Future<List<_i3.Business>>.value(<_i3.Business>[]),
+      ) as _i6.Future<List<_i3.Business>>);
 
   @override
-  _i7.Future<void> create(_i3.Business? item) => (super.noSuchMethod(
+  _i6.Future<void> create(_i3.Business? item) => (super.noSuchMethod(
         Invocation.method(
           #create,
           [item],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 
   @override
-  _i7.Future<void> update(_i3.Business? item) => (super.noSuchMethod(
+  _i6.Future<void> update(_i3.Business? item) => (super.noSuchMethod(
         Invocation.method(
           #update,
           [item],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 
   @override
-  _i7.Future<void> delete(String? id) => (super.noSuchMethod(
+  _i6.Future<void> delete(String? id) => (super.noSuchMethod(
         Invocation.method(
           #delete,
           [id],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 
   @override
-  _i7.Future<String> uploadFile(
+  _i6.Future<String> uploadFile(
     String? path,
-    _i8.Uint8List? bytes,
+    _i7.Uint8List? bytes,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -325,7 +244,7 @@ class MockBusinessRepository extends _i1.Mock
             bytes,
           ],
         ),
-        returnValue: _i7.Future<String>.value(_i6.dummyValue<String>(
+        returnValue: _i6.Future<String>.value(_i5.dummyValue<String>(
           this,
           Invocation.method(
             #uploadFile,
@@ -335,15 +254,15 @@ class MockBusinessRepository extends _i1.Mock
             ],
           ),
         )),
-      ) as _i7.Future<String>);
+      ) as _i6.Future<String>);
 
   @override
-  _i7.Future<void> deleteFile(String? path) => (super.noSuchMethod(
+  _i6.Future<void> deleteFile(String? path) => (super.noSuchMethod(
         Invocation.method(
           #deleteFile,
           [path],
         ),
-        returnValue: _i7.Future<void>.value(),
-        returnValueForMissingStub: _i7.Future<void>.value(),
-      ) as _i7.Future<void>);
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
 }

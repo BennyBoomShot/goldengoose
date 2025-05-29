@@ -1,4 +1,5 @@
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../../../../data/repositories/firebase_repository.dart';
 import '../../domain/entities/service.dart';
 
@@ -22,6 +23,7 @@ class ServiceRepository extends FirebaseRepository<Service> {
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
+      AppLogger.error('Service error', e, StackTrace.current);
       throw AppException.unknown('Failed to get business services: $e');
     }
   }
@@ -37,6 +39,7 @@ class ServiceRepository extends FirebaseRepository<Service> {
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
+      AppLogger.error('Service error', e, StackTrace.current);
       throw AppException.unknown('Failed to get services by category: $e');
     }
   }
@@ -52,6 +55,7 @@ class ServiceRepository extends FirebaseRepository<Service> {
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
+      AppLogger.error('Service error', e, StackTrace.current);
       throw AppException.unknown('Failed to search services: $e');
     }
   }
@@ -81,6 +85,7 @@ class ServiceRepository extends FirebaseRepository<Service> {
 
       await update(updatedService);
     } catch (e) {
+      AppLogger.error('Service error', e, StackTrace.current);
       throw AppException.unknown('Failed to update service availability: $e');
     }
   }
@@ -96,6 +101,7 @@ class ServiceRepository extends FirebaseRepository<Service> {
           .map((doc) => fromJson(doc.data()))
           .toList();
     } catch (e) {
+      AppLogger.error('Service error', e, StackTrace.current);
       throw AppException.unknown('Failed to get popular services: $e');
     }
   }

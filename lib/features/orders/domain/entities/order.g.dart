@@ -59,7 +59,13 @@ const _$OrderStatusEnumMap = {
 _$OrderItemImpl _$$OrderItemImplFromJson(Map<String, dynamic> json) =>
     _$OrderItemImpl(
       id: json['id'] as String,
-      service: _serviceFromJson(json['service'] as Map<String, dynamic>),
+      itemType: $enumDecode(_$OrderItemTypeEnumMap, json['itemType']),
+      product: json['product'] == null
+          ? null
+          : Product.fromJson(json['product'] as Map<String, dynamic>),
+      service: json['service'] == null
+          ? null
+          : Service.fromJson(json['service'] as Map<String, dynamic>),
       scheduledTime: DateTime.parse(json['scheduledTime'] as String),
       quantity: (json['quantity'] as num).toInt(),
       price: (json['price'] as num).toDouble(),
@@ -68,8 +74,15 @@ _$OrderItemImpl _$$OrderItemImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$OrderItemImplToJson(_$OrderItemImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'service': _serviceToJson(instance.service),
+      'itemType': _$OrderItemTypeEnumMap[instance.itemType]!,
+      'product': instance.product,
+      'service': instance.service,
       'scheduledTime': instance.scheduledTime.toIso8601String(),
       'quantity': instance.quantity,
       'price': instance.price,
     };
+
+const _$OrderItemTypeEnumMap = {
+  OrderItemType.product: 'product',
+  OrderItemType.service: 'service',
+};

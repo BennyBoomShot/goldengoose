@@ -1,5 +1,7 @@
 import 'package:flutter_stripe/flutter_stripe.dart';
+
 import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
 import '../base_remote_data_source.dart';
 
 class StripeDataSource implements BaseRemoteDataSource {
@@ -9,7 +11,8 @@ class StripeDataSource implements BaseRemoteDataSource {
       // Initialize Stripe with your publishable key
       await Stripe.instance.applySettings();
     } catch (e) {
-      throw AppException.unknown('Failed to initialize Stripe: $e');
+      AppLogger.error('Stripe error', e, StackTrace.current);
+      throw AppException.serverError('Failed to initialize Stripe');
     }
   }
 

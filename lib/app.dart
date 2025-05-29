@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'presentation/themes/app_theme.dart';
+
 import 'data/datasources/remote/firebase/firebase_data_source.dart';
 import 'data/datasources/remote/google/google_data_source.dart';
 import 'data/datasources/remote/stripe/stripe_data_source.dart';
+import 'presentation/themes/app_theme.dart';
 
 class GoldenGooseApp extends StatelessWidget {
   final FirebaseDataSource firebaseDataSource;

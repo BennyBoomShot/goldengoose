@@ -1,7 +1,7 @@
-import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/repositories/firebase_repository.dart';
-import 'package:goldengoose/features/products/domain/entities/product.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
+import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
+import '../../../../data/repositories/firebase_repository.dart';
+import '../../domain/entities/product.dart';
 
 class ProductRepository extends FirebaseRepository<Product> {
   ProductRepository({

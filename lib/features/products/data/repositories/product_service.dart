@@ -1,7 +1,9 @@
 import 'dart:typed_data';
-import 'package:goldengoose/features/products/data/repositories/product_repository.dart';
-import 'package:goldengoose/features/products/domain/entities/product.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../domain/entities/product.dart';
+import 'product_repository.dart';
 
 class ProductService {
   final ProductRepository productRepository;

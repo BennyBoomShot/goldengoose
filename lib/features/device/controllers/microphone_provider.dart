@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../shared/models/async_state.dart';
 
+import '../../../shared/models/async_state.dart';
+import '../../../core/error/app_exception.dart';
 class MicrophoneNotifier extends StateNotifier<AsyncState<bool>> {
   MicrophoneNotifier() : super(const AsyncState.data(false));
   // Implement microphone logic here

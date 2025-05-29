@@ -1,13 +1,15 @@
 import 'dart:async';
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'app.dart';
 import 'core/logger/app_logger.dart';
 import 'data/datasources/remote/firebase/firebase_data_source.dart';
 import 'data/datasources/remote/google/google_data_source.dart';
 import 'data/datasources/remote/stripe/stripe_data_source.dart';
-import 'app.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

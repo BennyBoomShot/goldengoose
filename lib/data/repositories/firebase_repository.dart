@@ -1,6 +1,8 @@
 import 'dart:typed_data';
-import 'package:firebase_auth/firebase_auth.dart' as auth;
+
 import 'package:meta/meta.dart';
+
+import '../../../core/logger/app_logger.dart';
 import '../../core/error/app_exception.dart';
 import '../../domain/repositories/base_repository.dart';
 import '../datasources/remote/firebase/firebase_data_source.dart';
@@ -22,43 +24,6 @@ class FirebaseRepository<T> implements BaseRepository<T> {
     required this.toJson,
   });
 
-  // Auth Methods
-  Future<auth.User?> getCurrentUser() async {
-    return firebaseDataSource.auth.currentUser;
-  }
-
-  Future<auth.UserCredential> signInWithEmailAndPassword(
-    String email,
-    String password,
-  ) async {
-    try {
-      return await firebaseDataSource.auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-    } on auth.FirebaseAuthException catch (e) {
-      throw AppException.unauthorized(e.message ?? 'Authentication failed');
-    }
-  }
-
-  Future<auth.UserCredential> createUserWithEmailAndPassword(
-    String email,
-    String password,
-  ) async {
-    try {
-      return await firebaseDataSource.auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-    } on auth.FirebaseAuthException catch (e) {
-      throw AppException.unauthorized(e.message ?? 'User creation failed');
-    }
-  }
-
-  Future<void> signOut() async {
-    await firebaseDataSource.auth.signOut();
-  }
-
   // Firestore Methods
   @override
   Future<T?> get(String id) async {
@@ -70,21 +35,20 @@ class FirebaseRepository<T> implements BaseRepository<T> {
       if (!doc.exists) return null;
       return fromJson(doc.data()!);
     } catch (e) {
-      throw AppException.unknown('Failed to get document: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get document');
     }
   }
 
   @override
   Future<List<T>> getAll() async {
     try {
-      final querySnapshot = await firebaseDataSource.firestore
-          .collection(collection)
-          .get();
-      return querySnapshot.docs
-          .map((doc) => fromJson(doc.data()))
-          .toList();
+      final querySnapshot =
+          await firebaseDataSource.firestore.collection(collection).get();
+      return querySnapshot.docs.map((doc) => fromJson(doc.data())).toList();
     } catch (e) {
-      throw AppException.unknown('Failed to get documents: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to get documents');
     }
   }
 
@@ -92,11 +56,10 @@ class FirebaseRepository<T> implements BaseRepository<T> {
   Future<void> create(T item) async {
     try {
       final data = toJson(item);
-      await firebaseDataSource.firestore
-          .collection(collection)
-          .add(data);
+      await firebaseDataSource.firestore.collection(collection).add(data);
     } catch (e) {
-      throw AppException.unknown('Failed to create document: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to create document');
     }
   }
 
@@ -105,14 +68,19 @@ class FirebaseRepository<T> implements BaseRepository<T> {
     try {
       final data = toJson(item);
       final id = (data['id'] as String?) ?? '';
-      if (id.isEmpty) throw AppException.invalidInput('Document ID is required');
-      
+      if (id.isEmpty) {
+        AppLogger.error(
+            'Firestore error', 'Document ID is required', StackTrace.current);
+        throw AppException.invalidInput('Document ID is required');
+      }
+
       await firebaseDataSource.firestore
           .collection(collection)
           .doc(id)
           .update(data);
     } catch (e) {
-      throw AppException.unknown('Failed to update document: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to update document');
     }
   }
 
@@ -124,7 +92,8 @@ class FirebaseRepository<T> implements BaseRepository<T> {
           .doc(id)
           .delete();
     } catch (e) {
-      throw AppException.unknown('Failed to delete document: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to delete document');
     }
   }
 
@@ -135,7 +104,8 @@ class FirebaseRepository<T> implements BaseRepository<T> {
       await ref.putData(bytes);
       return await ref.getDownloadURL();
     } catch (e) {
-      throw AppException.unknown('Failed to upload file: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to upload file');
     }
   }
 
@@ -143,7 +113,8 @@ class FirebaseRepository<T> implements BaseRepository<T> {
     try {
       await firebaseDataSource.storage.ref().child(path).delete();
     } catch (e) {
-      throw AppException.unknown('Failed to delete file: $e');
+      AppLogger.error('Firestore error', e, StackTrace.current);
+      throw AppException.notFound('Failed to delete file');
     }
   }
-} 
+}

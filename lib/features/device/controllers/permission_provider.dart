@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
-import '../../../shared/models/async_state.dart';
 
+import '../../../shared/models/async_state.dart';
+import '../../../core/error/app_exception.dart';
 class PermissionNotifier extends StateNotifier<AsyncState<PermissionStatus>> {
   final Permission _permission;
   PermissionNotifier(this._permission) : super(const AsyncState.loading()) {
@@ -12,7 +13,7 @@ class PermissionNotifier extends StateNotifier<AsyncState<PermissionStatus>> {
       final status = await _permission.status;
       state = AsyncState.data(status);
     } catch (e) {
-      state = AsyncState.error(e.toString());
+      state = AsyncState.error(getErrorMessage(e));
     }
   }
   Future<void> request() async {
@@ -20,7 +21,7 @@ class PermissionNotifier extends StateNotifier<AsyncState<PermissionStatus>> {
       final status = await _permission.request();
       state = AsyncState.data(status);
     } catch (e) {
-      state = AsyncState.error(e.toString());
+      state = AsyncState.error(getErrorMessage(e));
     }
   }
 }

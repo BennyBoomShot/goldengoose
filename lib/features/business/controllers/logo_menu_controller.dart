@@ -1,7 +1,9 @@
-import 'package:goldengoose/core/services/image_service.dart';
-import 'package:goldengoose/core/services/text_recognition_service.dart';
-import 'package:goldengoose/core/services/cloud_vision_service.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../core/error/app_exception.dart';
+import '../../../core/services/cloud_vision_service.dart';
+import '../../../core/services/image_service.dart';
+import '../../../core/services/text_recognition_service.dart';
 import '../../../shared/models/logo_detection_result.dart';
 import '../../../shared/models/menu_extraction_result.dart';
 
@@ -27,7 +29,7 @@ class LogoMenuController {
       final logos = await cloudVisionService.detectLogosWithCloudVision(image.path, apiKey);
       return LogoDetectionResult.success(image.path, logos);
     } catch (e) {
-      return LogoDetectionResult.failure(e.toString());
+      return LogoDetectionResult.failure(getErrorMessage(e));
     }
   }
 
@@ -42,7 +44,7 @@ class LogoMenuController {
       final text = await textRecognitionService.extractTextFromImage(image.path);
       return MenuExtractionResult.success(image.path, text);
     } catch (e) {
-      return MenuExtractionResult.failure(e.toString());
+      return MenuExtractionResult.failure(getErrorMessage(e));
     }
   }
 

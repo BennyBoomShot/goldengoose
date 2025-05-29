@@ -1,15 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
-import 'package:goldengoose/features/booking/data/repositories/booking_repository.dart';
-import 'package:goldengoose/features/booking/domain/usecases/create_booking.dart';
-import 'package:goldengoose/features/booking/domain/usecases/get_booking.dart';
-import 'package:goldengoose/features/booking/domain/usecases/get_user_bookings.dart';
-import 'package:goldengoose/features/booking/domain/usecases/get_business_bookings.dart';
-import 'package:goldengoose/features/booking/domain/usecases/get_upcoming_bookings.dart';
-import 'package:goldengoose/features/booking/domain/usecases/get_bookings_by_date_range.dart';
-import 'package:goldengoose/features/booking/domain/usecases/update_booking.dart';
-import 'package:goldengoose/features/booking/domain/usecases/delete_booking.dart';
-import 'package:goldengoose/features/booking/domain/usecases/update_booking_status.dart';
+
+import '../../data/datasources/remote/firebase/firebase_data_source.dart';
+import '../../features/booking/data/repositories/booking_repository.dart';
+import '../../features/booking/domain/use_cases/create_booking.dart';
+import '../../features/booking/domain/use_cases/delete_booking.dart';
+import '../../features/booking/domain/use_cases/get_booking.dart';
+import '../../features/booking/domain/use_cases/get_bookings_by_date_range.dart';
+import '../../features/booking/domain/use_cases/get_business_bookings.dart';
+import '../../features/booking/domain/use_cases/get_upcoming_bookings.dart';
+import '../../features/booking/domain/use_cases/get_user_bookings.dart';
+import '../../features/booking/domain/use_cases/update_booking.dart';
+import '../../features/booking/domain/use_cases/update_booking_status.dart';
 
 final firebaseDataSourceProvider = Provider<FirebaseDataSource>((ref) => FirebaseDataSource());
 

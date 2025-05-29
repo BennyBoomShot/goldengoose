@@ -1,9 +1,11 @@
 import 'dart:io';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
-import 'package:goldengoose/features/products/data/repositories/product_repository.dart';
-import 'package:goldengoose/features/products/domain/entities/product.dart';
-import 'package:uuid/uuid.dart';
+
 import 'package:path/path.dart' as p;
+import 'package:uuid/uuid.dart';
+
+import '../../../../data/datasources/remote/firebase/firebase_data_source.dart';
+import '../../../products/data/repositories/product_repository.dart';
+import '../../../products/domain/entities/product.dart';
 
 class BusinessAssetService {
   final FirebaseDataSource firebaseDataSource;

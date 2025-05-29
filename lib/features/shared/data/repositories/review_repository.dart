@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:goldengoose/features/shared/models/review.dart';
-import 'package:goldengoose/features/shared/data/repositories/notification_repository.dart';
-import 'package:goldengoose/features/shared/models/notification.dart';
+
+import '../../models/notification.dart';
+import '../../models/review.dart';
+import 'notification_repository.dart';
 
 class ReviewRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

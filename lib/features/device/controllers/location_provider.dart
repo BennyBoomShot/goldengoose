@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import '../../../shared/models/async_state.dart';
 
+import '../../../shared/models/async_state.dart';
+import '../../../core/error/app_exception.dart';
 class LocationNotifier extends StateNotifier<AsyncState<Position>> {
   LocationNotifier() : super(const AsyncState.loading()) {
     _init();
@@ -19,7 +20,7 @@ class LocationNotifier extends StateNotifier<AsyncState<Position>> {
       final position = await Geolocator.getCurrentPosition();
       state = AsyncState.data(position);
     } catch (e) {
-      state = AsyncState.error(e.toString());
+      state = AsyncState.error(getErrorMessage(e));
     }
   }
 }

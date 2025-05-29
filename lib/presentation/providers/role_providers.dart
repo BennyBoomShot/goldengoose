@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goldengoose/features/roles/data/repositories/role_repository.dart';
-import 'package:goldengoose/features/roles/domain/usecases/create_role.dart';
-import 'package:goldengoose/features/roles/domain/usecases/get_role.dart';
-import 'package:goldengoose/features/roles/domain/usecases/update_role.dart';
-import 'package:goldengoose/features/roles/domain/usecases/delete_role.dart';
-import 'package:goldengoose/features/roles/domain/usecases/list_roles.dart';
-import 'package:goldengoose/features/roles/domain/usecases/assign_role_to_user.dart';
-import 'package:goldengoose/features/roles/domain/usecases/get_user_roles.dart';
-import 'package:goldengoose/features/roles/domain/usecases/check_user_role.dart';
+
+import '../../features/roles/data/repositories/role_repository.dart';
+import '../../features/roles/domain/use_cases/assign_role_to_user.dart';
+import '../../features/roles/domain/use_cases/check_user_role.dart';
+import '../../features/roles/domain/use_cases/create_role.dart';
+import '../../features/roles/domain/use_cases/delete_role.dart';
+import '../../features/roles/domain/use_cases/get_role.dart';
+import '../../features/roles/domain/use_cases/get_user_roles.dart';
+import '../../features/roles/domain/use_cases/list_roles.dart';
+import '../../features/roles/domain/use_cases/update_role.dart';
 
 final roleRepositoryProvider = Provider<RoleRepository>((ref) => RoleRepository());
 

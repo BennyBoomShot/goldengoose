@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goldengoose/features/business/domain/entities/business.dart';
-import 'package:goldengoose/features/business/data/repositories/business_repository.dart';
-import 'package:goldengoose/shared/models/async_state.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
+
+import '../../../core/error/app_exception.dart';
+import '../../../shared/models/async_state.dart';
+import '../data/repositories/business_repository.dart';
+import '../domain/entities/business.dart';
 
 class BusinessNotifier extends StateNotifier<AsyncState<List<Business>>> {
   final BusinessRepository repository;
@@ -13,9 +14,9 @@ class BusinessNotifier extends StateNotifier<AsyncState<List<Business>>> {
       final businesses = await repository.getPopularBusinesses();
       state = AsyncState.data(businesses);
     } on AppException catch (e) {
-      state = AsyncState.error(e.message ?? 'Unknown error');
+      state = AsyncState.error(getErrorMessage(e));
     } catch (e) {
-      state = AsyncState.error(e.toString());
+      state = AsyncState.error(getErrorMessage(e));
     }
   }
 } 

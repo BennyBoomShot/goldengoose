@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:goldengoose/features/service/domain/entities/service.dart';
+
+import '../../../products/domain/entities/product.dart';
+import '../../../service/domain/entities/service.dart';
 
 part 'order.freezed.dart';
 part 'order.g.dart';
@@ -41,7 +43,9 @@ class Order with _$Order {
 class OrderItem with _$OrderItem {
   const factory OrderItem({
     required String id,
-    @JsonKey(fromJson: _serviceFromJson, toJson: _serviceToJson) required Service service,
+    required OrderItemType itemType,
+    Product? product,
+    Service? service,
     required DateTime scheduledTime,
     required int quantity,
     required double price,
@@ -50,5 +54,12 @@ class OrderItem with _$OrderItem {
   factory OrderItem.fromJson(Map<String, dynamic> json) => _$OrderItemFromJson(json);
 }
 
-Service _serviceFromJson(Map<String, dynamic> json) => Service.fromJson(json);
-Map<String, dynamic> _serviceToJson(Service service) => service.toJson(); 
+enum OrderItemType { product, service }
+
+OrderItemType _orderItemTypeFromJson(String type) => OrderItemType.values.firstWhere((e) => e.name == type);
+String _orderItemTypeToJson(OrderItemType type) => type.name;
+
+Product? _productFromJson(Map<String, dynamic>? json) => json == null ? null : Product.fromJson(json);
+Map<String, dynamic>? _productToJson(Product? product) => product?.toJson();
+Service? _serviceFromJson(Map<String, dynamic>? json) => json == null ? null : Service.fromJson(json);
+Map<String, dynamic>? _serviceToJson(Service? service) => service?.toJson(); 

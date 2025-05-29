@@ -1,7 +1,7 @@
-import 'package:goldengoose/core/logger/app_logger.dart';
-import 'package:goldengoose/data/repositories/firebase_repository.dart';
-import 'package:goldengoose/features/cart/domain/entities/cart.dart';
-import 'package:goldengoose/core/error/app_exception.dart';
+import '../../../../core/error/app_exception.dart';
+import '../../../../core/logger/app_logger.dart';
+import '../../../../data/repositories/firebase_repository.dart';
+import '../../domain/entities/cart.dart';
 
 class CartRepository extends FirebaseRepository<Cart> {
   CartRepository({
@@ -61,4 +61,55 @@ class CartRepository extends FirebaseRepository<Cart> {
       throw AppException.unknown('Failed to delete cart: $e');
     }
   }
+
+  // Cart-specific methods
+  Future<void> addToCart(String userId, CartItem item) async {
+    final cart = await get(userId) ?? Cart(
+      id: userId,
+      userId: userId,
+      items: [],
+      totalAmount: 0.0,
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    );
+    final updatedItems = List<CartItem>.from(cart.items)..add(item);
+    final updatedTotal = updatedItems.fold<double>(0, (sum, i) => sum + (i.price * i.quantity));
+    final updatedCart = cart.copyWith(
+      items: updatedItems,
+      totalAmount: updatedTotal,
+      updatedAt: DateTime.now(),
+    );
+    await update(updatedCart);
+  }
+
+  Future<void> removeFromCart(String userId, String itemId) async {
+    final cart = await get(userId);
+    if (cart == null) return;
+    final updatedItems = cart.items.where((i) => i.id != itemId).toList();
+    final updatedTotal = updatedItems.fold<double>(0, (sum, i) => sum + (i.price * i.quantity));
+    final updatedCart = cart.copyWith(
+      items: updatedItems,
+      totalAmount: updatedTotal,
+      updatedAt: DateTime.now(),
+    );
+    await update(updatedCart);
+  }
+
+  Future<Cart?> getCart(String userId) async {
+    return await get(userId);
+  }
+
+  Future<void> updateCartItem(String userId, CartItem updatedItem) async {
+    final cart = await get(userId);
+    if (cart == null) return;
+    final updatedItems = cart.items.map((i) => i.id == updatedItem.id ? updatedItem : i).toList();
+    final updatedTotal = updatedItems.fold<double>(0, (sum, i) => sum + (i.price * i.quantity));
+    final updatedCart = cart.copyWith(
+      items: updatedItems,
+      totalAmount: updatedTotal,
+      updatedAt: DateTime.now(),
+    );
+    await update(updatedCart);
+  }
 } 
+

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:goldengoose/features/service/domain/entities/service.dart';
+import '../../../service/domain/entities/service.dart';
 
 part 'cart.freezed.dart';
 part 'cart.g.dart';

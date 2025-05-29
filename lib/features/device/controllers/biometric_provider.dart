@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:local_auth/local_auth.dart';
-import '../../../shared/models/async_state.dart';
 
+import '../../../core/error/app_exception.dart';
+import '../../../shared/models/async_state.dart';
 class BiometricNotifier extends StateNotifier<AsyncState<bool>> {
   final LocalAuthentication _auth = LocalAuthentication();
   BiometricNotifier() : super(const AsyncState.data(false));
@@ -12,7 +13,7 @@ class BiometricNotifier extends StateNotifier<AsyncState<bool>> {
       );
       state = AsyncState.data(didAuthenticate);
     } catch (e) {
-      state = AsyncState.error(e.toString());
+      state = AsyncState.error(getErrorMessage(e));
     }
   }
 }

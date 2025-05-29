@@ -1,5 +1,5 @@
-import 'package:goldengoose/shared/models/logo_detection_result.dart';
-import 'package:goldengoose/shared/models/menu_extraction_result.dart';
+import '../../../../shared/models/logo_detection_result.dart';
+import '../../../../shared/models/menu_extraction_result.dart';
 import '../../domain/entities/app_logo.dart';
 import '../../domain/entities/product.dart';
 

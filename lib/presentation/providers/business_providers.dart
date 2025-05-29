@@ -1,15 +1,16 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
-import 'package:goldengoose/features/business/data/repositories/business_repository.dart';
-import 'package:goldengoose/features/business/data/repositories/business_repository_impl.dart';
-import 'package:goldengoose/features/business/domain/usecases/get_businesses.dart';
-import 'package:goldengoose/features/business/domain/usecases/get_businesses_by_category.dart';
-import 'package:goldengoose/features/business/domain/usecases/search_businesses.dart';
-import 'package:goldengoose/features/business/domain/usecases/get_nearby_businesses.dart';
-import 'package:goldengoose/features/business/domain/usecases/get_popular_businesses.dart';
-import 'package:goldengoose/features/business/domain/usecases/update_business_rating.dart';
-import 'package:goldengoose/features/business/domain/usecases/upload_business_image.dart';
-import 'package:goldengoose/data/datasources/remote/firebase/firebase_data_source.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../data/datasources/remote/firebase/firebase_data_source.dart';
+import '../../features/business/data/repositories/business_repository.dart';
+import '../../features/business/data/repositories/business_repository_impl.dart';
+import '../../features/business/domain/usecases/get_businesses.dart';
+import '../../features/business/domain/usecases/get_businesses_by_category.dart';
+import '../../features/business/domain/usecases/get_nearby_businesses.dart';
+import '../../features/business/domain/usecases/get_popular_businesses.dart';
+import '../../features/business/domain/usecases/search_businesses.dart';
+import '../../features/business/domain/usecases/update_business_rating.dart';
+import '../../features/business/domain/usecases/upload_business_image.dart';
 
 final dioProvider = Provider<Dio>((ref) => Dio());
 final firebaseDataSourceProvider = Provider<FirebaseDataSource>((ref) => FirebaseDataSource());

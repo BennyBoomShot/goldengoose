@@ -21,4 +21,19 @@ class Failure {
     required this.message,
     required this.exception,
   });
-} 
+}
+
+String getErrorMessage(dynamic error) {
+  if (error is AppException) {
+    return error.when(
+      networkError: (msg) => msg ?? 'No internet connection.',
+      serverError: (msg) => msg ?? 'Server error. Please try again later.',
+      cacheError: (msg) => msg ?? 'Cache error.',
+      invalidInput: (msg) => msg ?? 'Invalid input.',
+      unauthorized: (msg) => msg ?? 'You are not authorized.',
+      notFound: (msg) => msg ?? 'Resource not found.',
+      unknown: (msg) => msg ?? 'An unknown error occurred.',
+    );
+  }
+  return 'An error occurred. Please try again.';
+}

@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:goldengoose/features/business/controllers/logo_menu_controller.dart';
-import 'package:goldengoose/presentation/providers/image_service_provider.dart';
-import 'package:goldengoose/presentation/providers/text_recognition_service_provider.dart';
-import 'package:goldengoose/presentation/providers/cloud_vision_service_provider.dart';
+
+import '../../features/business/controllers/logo_menu_controller.dart';
+import 'cloud_vision_service_provider.dart';
+import 'image_service_provider.dart';
+import 'text_recognition_service_provider.dart';
 
 final logoMenuControllerProvider = Provider<LogoMenuController>((ref) {
   final imageService = ref.read(imageServiceProvider);

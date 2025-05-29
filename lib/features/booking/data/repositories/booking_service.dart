@@ -1,7 +1,8 @@
-import 'package:goldengoose/features/booking/domain/entities/booking.dart' as domain;
 import 'package:cloud_firestore/cloud_firestore.dart' as firestore;
-import 'package:goldengoose/features/shared/data/repositories/notification_repository.dart';
-import 'package:goldengoose/features/shared/models/notification.dart';
+
+import '../../../shared/data/repositories/notification_repository.dart';
+import '../../../shared/models/notification.dart';
+import '../../domain/entities/booking.dart' as domain;
 
 class BookingService {
   final firestore.FirebaseFirestore _firestore = firestore.FirebaseFirestore.instance;
